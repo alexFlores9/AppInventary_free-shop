@@ -18,7 +18,7 @@ import java.util.Locale;
 public class ConexionSQLite extends SQLiteOpenHelper {
 
     public ConexionSQLite(Context context) {
-        super(context, "bd_inbentario", null, 1);
+        super(context, "bd_inventario", null, 1);
 
     }
 
@@ -29,7 +29,15 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         db.execSQL("create table tb_categoria(id_categoria interger(5)not null primary key,nom_categoria text(50)not null,estado_categoria interger(1)not null)");
 
         db.execSQL("create table tb_usuario(id_usuario interger(11)not null primary key,nombre text(60)not null,apellido text(30)not null,correo text(45)not null,usuario text(30)not null,clave text(150)not null,tipo interger(1)not null,estado text(1)not null,pregunta text(60),respuesta text(35)not null,fecha_registro timestamp)");
+
+
+        db.execSQL("insert into tb_categoria values('1','Cat1','2')");
+
+
     }
+
+
+
 
     public SQLiteDatabase bd() {
         SQLiteDatabase bd = this.getWritableDatabase();

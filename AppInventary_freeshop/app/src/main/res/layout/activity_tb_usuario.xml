@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#fff"
+    tools:context=".tb_usuario">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp"
+        android:background="@drawable/degstyle1"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+           android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Crear usuario"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_supervised_user_circle_24"/>
+
+        <TextView
+
+
+         android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Nombre:"
+            />
+
+        <EditText
+            android:id="@+id/ed_nombre"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+           />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Apellido:"
+            />
+
+        <EditText
+            android:id="@+id/ed_apellido"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+////
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Correo:"
+            />
+
+        <EditText
+            android:id="@+id/ed_correo"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+
+//
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Usuario:"
+            />
+
+        <EditText
+            android:id="@+id/ed_usuario"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+//
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Clave:"
+            />
+
+        <EditText
+            android:id="@+id/ed_clave"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+
+        //
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tipo:"
+            />
+
+        <EditText
+            android:id="@+id/ed_tipo"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+
+        //
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Estado:"
+            />
+
+        <EditText
+            android:id="@+id/ed_estado"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+
+        //
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Pregunta:"
+            />
+
+        <EditText
+            android:id="@+id/pregunta"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+        ///
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Respuesta:"
+            />
+
+        <EditText
+            android:id="@+id/ed_respuesta"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+
+
+        <Button
+            android:layout_marginTop="25dp"
+            android:id="@+id/btn_crearusuario"
+            android:text="crear"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/btn"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+           />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="                "
+            />
+    </LinearLayout>
+</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
