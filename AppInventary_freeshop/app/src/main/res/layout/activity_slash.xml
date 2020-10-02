@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3BE9FF"
     tools:context=".slash">
 
     <ScrollView
@@ -15,12 +16,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_margin="15dp"
+
             android:background="@drawable/degstyle1"
             tools:ignore="MissingConstraints">
 
             <TextView
                 android:layout_marginTop="15dp"
-                android:textSize="22sp"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="#000"
@@ -29,11 +31,6 @@
                 android:text="Welcome"
                 />
 
-            <ImageView
-                android:layout_marginTop="60dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/itca"/>
 
             <TextView
 
@@ -47,62 +44,132 @@
                 android:layout_height="match_parent"
                 android:text="Integrantes:"
                 />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal">
+    <TextView
+
+        android:layout_marginTop="5dp"
+        android:textSize="22sp"
+        android:layout_marginEnd="25dp"
+
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oscar Noe Lopez Ceron"
+        android:layout_marginRight="25dp" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/osk" />
 
 
-            <TextView
+</LinearLayout>
 
-                android:layout_marginTop="25dp"
-                android:textSize="22sp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="#000"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Oscar Noe"
-                />
-
-
-            ////
-            <TextView
-                android:layout_marginTop="15dp"
-                android:textSize="22sp"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+
+                    android:layout_marginTop="5dp"
+                    android:textSize="22sp"
+                    android:layout_marginEnd="20dp"
+
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ruben Natividad Ramos "
+                    android:layout_marginRight="25dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/tito" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="El chele"
-                />
-
-
-
-            //
-
-            <TextView
-                android:layout_marginTop="15dp"
-                android:textSize="22sp"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+
+                    android:layout_marginTop="5dp"
+                    android:textSize="22sp"
+                    android:layout_marginEnd="10dp"
+
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edwin Alexander Alvarado"
+                    android:layout_marginRight="25dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/chele" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+                android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+
+                android:layout_marginTop="5dp"
+                android:textSize="22sp"
+                android:layout_marginEnd="30dp"
+
                 android:textStyle="bold"
                 android:textColor="#000"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Tito:"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marlon Alexis Flores "
+                android:layout_marginRight="25dp" />
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/prueba"
+                android:src="@drawable/me" />
 
-            //
-            <TextView
-                android:layout_marginTop="15dp"
-                android:textSize="22sp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Marlon"
-                />
 
         </LinearLayout>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/itca"/>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     "/>
+
+        </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tb_producto">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="15dp"
+            android:background="@drawable/degstyle1"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Nuevo producto"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/freeshop"/>
+<LinearLayout
+    android:layout_marginTop="29dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Nombre Producto:"
+        />
+    <EditText
+        android:id="@+id/ed_nombre_pro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Descripción:"
+                    />
+                <EditText
+                    android:id="@+id/ed_descripcion_pro"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Stock:"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_stock_pro"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Precio:"
+                    />
+                <EditText
+                    android:id="@+id/ed_precio_pro"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Unidade de medida:"
+                    />
+                <EditText
+                    android:id="@+id/ed_unidad_pro"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Estado:"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_estado_pro"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Categoria:"
+                    />
+                <EditText
+                    android:id="@+id/ed_categoria_pro"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="     "/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
