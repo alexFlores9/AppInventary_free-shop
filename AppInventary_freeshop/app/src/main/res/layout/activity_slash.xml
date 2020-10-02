@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/trans"
+    android:background="#3BE9FF"
     tools:context=".slash">
 
     <ScrollView
@@ -54,10 +54,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="horizontal">
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/osk" />
+
     <TextView
 
         android:layout_marginTop="5dp"
@@ -71,7 +68,10 @@
         android:text=" Oscar Noé López Cerón.          "
         android:layout_marginRight="25dp" />
 
-
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/osk" />
 
 </LinearLayout>
 
@@ -83,10 +83,7 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/tito" />
+
 
                 <TextView
 
@@ -100,33 +97,37 @@
                     android:layout_height="wrap_content"
                     android:text=" Rubén Natividad Ramos Cubias."
                     android:layout_marginRight="25dp" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/tito" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/chele" />
+
 
                 <TextView
-                    android:layout_marginTop="5dp"
-                    android:textSize="18sp"
-                    android:layout_marginEnd="10dp"
-                    android:textStyle="bold"
-                    android:textColor="#000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="25dp"
                     android:text="Edwin Alexander Ayala Alvarado."
-                    android:layout_marginRight="25dp" />
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/chele"/>
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,11 +137,6 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="0dp"
-                    android:src="@drawable/me" />
 
                 <TextView
                     android:layout_marginTop="5dp"
@@ -152,6 +148,12 @@
                     android:layout_height="wrap_content"
                     android:text="Marlon Alexis Flores Navarrete. "
                     android:layout_marginRight="25dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="0dp"
+                    android:src="@drawable/me" />
             </LinearLayout>
             <TextView
                 android:layout_marginTop="15dp"
