@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".listview_categorias"></activity>
-        <activity android:name=".tb_categoria"></activity>
+        <activity android:name=".tb_categoria">
+
+        </activity>
         <activity android:name=".tb_producto" />
         <activity android:name=".slash"></activity>
         <activity

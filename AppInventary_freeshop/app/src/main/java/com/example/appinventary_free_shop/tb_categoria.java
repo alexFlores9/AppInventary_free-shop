@@ -60,6 +60,8 @@ public class tb_categoria extends AppCompatActivity implements View.OnClickListe
         et_estado.setText(null);
         et_id.requestFocus();
     }
+
+
     public void campocategoria(View v){
         if(et_id.getText().toString().length()==0){
             et_id.setError("Campo obligatorio");

@@ -63,10 +63,6 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         //SQLiteDatabase bd = this.getWritableDatabase();
         try {
 
-
-
-
-
             int id_usuario = datos.getId_usuario();
             String nombre = datos.getNombre();
             String apellido = datos.getApellido();
@@ -81,14 +77,14 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
 
             //Cursor fila = this.getWritableDatabase().rawQuery("select codigo from articulos
-            Cursor fila = bd().rawQuery("select nombre from tb_usuario where nombre='" + nombre + "'", null);
+            Cursor fila = bd().rawQuery("select id_usuario from tb_usuario where id_usuario='" + id_usuario + "'", null);
             if (fila.moveToFirst() == true) {
                 estad = false;
             } else {
                 String SQL = "INSERT INTO tb_usuario\n" +
                         "(id_usuario,)\n" +
                         "VALUES \n" +
-                        "('" + String.valueOf(id_usuario) + "', '" + nombre + "', '" + apellido + "', '" + correo+ "', '" + usuario + "', '" + clave + "','" + String.valueOf(tipo) + "','" + String.valueOf(estado) + "','" + pregunta + "','" +respuesta + "');";
+                        "('" + String.valueOf(id_usuario) + "', '" + nombre + "', '" + apellido + "', '" + correo+ "', '" + usuario + "', '" + clave + "','" + String.valueOf(tipo) + "','" + String.valueOf(estado) + "','" + pregunta + "','" +respuesta + "','"+getDateTime()  + "');";
                 bd().execSQL(SQL);
                 bd().close();
  /*
@@ -126,7 +122,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
             String nombre_categoria = datos.getNom_categoria();
             int estado_categoria = datos.getEstado_categoria();
 
-            Cursor fila = bd().rawQuery("select id_categoria from categoria where id_categoria='"+id_categoria+"'",null);
+            Cursor fila = bd().rawQuery("select id_categoria from tb_categoria where id_categoria='"+id_categoria+"'",null);
 
             if (fila.moveToFirst()==true){
                 estado =false;

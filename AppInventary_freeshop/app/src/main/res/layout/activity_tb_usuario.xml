@@ -38,6 +38,26 @@
         <TextView
 
 
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Id usuario:"
+            />
+
+        <EditText
+            android:id="@+id/ed_id"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+
+
          android:layout_marginTop="15dp"
             android:textSize="22sp"
             android:gravity="center"
