@@ -174,5 +174,49 @@ ArrayList<Dto>categoriasList;
 
         return listaCategorias;
    }
+   //consulta para Listview de Categorias
+
+    public  ArrayList<String> obtenerListaCategorias(){
+        listaCategorias= new ArrayList<String>();
+        listaCategorias.add("Seleccione");
+
+        for(int i= 0;i<categoriasList.size();i++){
+            listaCategorias.add(categoriasList.get(i).getId_categoria()+"-" +
+                    ""+categoriasList.get(i).getEstado());
+        }
+        return listaCategorias;
+    }
+
+    public ArrayList<Dto> consultaCategorias(){
+        boolean estado = false;
+
+        SQLiteDatabase bd = this.getReadableDatabase();
+
+        Dto categorias = null;
+        categoriasList = new ArrayList<Dto>();
+
+        try{
+            Cursor fila = bd.rawQuery("select * from tb_categoria",null);
+            while (fila.moveToNext()){
+                categorias= new Dto();
+                categorias.setId_categoria(fila.getInt(0));
+                categorias.setNom_categoria(fila.getString(1));
+                categorias.setEstado_categoria(fila.getInt(2));
+
+                categoriasList.add(categorias);
+
+                Log.i("id_categoria",String.valueOf(categorias.getId_categoria()));
+                Log.i("nom_categoria",categorias.getNom_categoria().toString());
+                Log.i("estado_categoria",String.valueOf(categorias.getEstado_categoria()));
+
+            }
+            obtenerListaCategorias();
+
+        }catch (Exception e){
+
+        }
+        return categoriasList;
+    }
+
     //Fin de espacio asignado para registro de tabla categorias
 }
