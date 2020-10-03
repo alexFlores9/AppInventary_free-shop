@@ -104,4 +104,37 @@ public class ConexionSQLite extends SQLiteOpenHelper {
     Calendar cal = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String fecha1 = sdf.format(cal.getTime());
+
+    //Espacio designado para registros de la tabla Categorias
+    public boolean InertCategoria(Dto datos){
+        boolean estado = true;
+        int resultado;
+
+        try{
+            int id_categoria = datos.getId_categoria();
+            String nombre_categoria = datos.getNom_categoria();
+            int estado_categoria = datos.getEstado_categoria();
+
+            Cursor fila = bd().rawQuery("select id_categoria from categoria where id_categoria='"+id_categoria+"'",null);
+
+            if (fila.moveToFirst()==true){
+                estado =false;
+            }else{
+                String SQL = "INSERT INTO tb_categoria\n"+
+                        "(id_categoria,nom_categoria,estado_categoria)\n"+
+                        "VALUES\n"+
+                        "('"+String.valueOf(id_categoria)+"','"+nombre_categoria+"','"+
+                        String.valueOf(estado_categoria)+"');";
+                bd().execSQL(SQL);
+                bd().close();
+
+                estado = true;
+            }
+        }catch (Exception e){
+            estado = false;
+            Log.e("Error.",e.toString());
+        }
+        return estado;
+    }
+    //Fin de espacio asignado para registro de tabla categorias
 }
