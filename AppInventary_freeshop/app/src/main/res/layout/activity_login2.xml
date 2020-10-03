@@ -39,9 +39,10 @@ android:hint="usuario"/>
 
 
     <Button
+        android:id="@+id/btn_val"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ingresar"
-        android:onClick="ingre"/>
+   />
 
 </LinearLayout>
