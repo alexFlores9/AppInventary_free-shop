@@ -55,6 +55,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
     }
 
+
     public boolean InsertTradicional(Dto datos) {
 
         boolean estad = true;
