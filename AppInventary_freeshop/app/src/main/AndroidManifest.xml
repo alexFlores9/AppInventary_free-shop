@@ -9,12 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".listview_categorias"></activity>
-        <activity android:name=".tb_categoria">
-
-        </activity>
+        <activity android:name=".Login"></activity>
+        <activity android:name=".listview_categorias" />
+        <activity android:name=".tb_categoria"></activity>
         <activity android:name=".tb_producto" />
-        <activity android:name=".slash"></activity>
+        <activity android:name=".slash" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />

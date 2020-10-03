@@ -187,7 +187,7 @@ ed_id = findViewById(R.id.ed_id);
                 } else {
                     Toast.makeText(this, "Error. Ya existe un registro\n" +
                             "id: " + ed_id.getText().toString(), Toast.LENGTH_SHORT).show();
-                    limpiarDatos();
+
                 }
             } catch (Exception e) {
                 Toast.makeText(this, "Error, Ya existe", Toast.LENGTH_SHORT).show();

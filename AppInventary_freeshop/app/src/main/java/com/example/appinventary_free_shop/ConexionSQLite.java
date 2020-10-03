@@ -22,6 +22,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table tb_producto(id_producto interger(9) not null primary key, nom_producto text(50) not null,des_producto text(90) not null,stock decimal(3,2) not null,precio decimal(3,2),unidad_de_medida text(20) not null, estado_producto interger(1),categoria interger(5)not null,fecha_entrada datetime not null)");
@@ -56,6 +57,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
     }
 
 
+
     public boolean InsertTradicional(Dto datos) {
 
         boolean estad = true;
@@ -82,9 +84,9 @@ public class ConexionSQLite extends SQLiteOpenHelper {
                 estad = false;
             } else {
                 String SQL = "INSERT INTO tb_usuario\n" +
-                        "(id_usuario,)\n" +
+                        "(id_usuario,nombre,apellido,correo,usuario,clave,tipo,estado,pregunta,respuesta,fecha_registro)\n" +
                         "VALUES \n" +
-                        "('" + String.valueOf(id_usuario) + "', '" + nombre + "', '" + apellido + "', '" + correo+ "', '" + usuario + "', '" + clave + "','" + String.valueOf(tipo) + "','" + String.valueOf(estado) + "','" + pregunta + "','" +respuesta + "','"+getDateTime()  + "');";
+                        "('"+String.valueOf(id_usuario)+"','"+nombre +"','"+apellido+"','"+correo+"','"+usuario+"','"+clave+"','"+String.valueOf(tipo)+"','"+String.valueOf(estado)+"','"+pregunta+"','"+respuesta+"','"+getDateTime()+"');";
                 bd().execSQL(SQL);
                 bd().close();
  /*
