@@ -1,6 +1,8 @@
 package com.example.appinventary_free_shop;
 
-public class Dto {
+import java.io.Serializable;
+
+public class Dto implements Serializable {
     int id_producto, categoria, estado_producto;
     String nom_producto,des_producto,unidad_de_medida;
     double stock,precio;

@@ -59,7 +59,11 @@ public class listview_categorias extends AppCompatActivity {
                 infromacion+="Estado: "+conexion.consultaCategorias().get(pos).getEstado_categoria();
             
                 Dto categorias = conexion.consultaCategorias().get(pos);
-
+                Intent intent = new Intent(listview_categorias.this, detalles_categorias.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("tb_categoria", categorias);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }

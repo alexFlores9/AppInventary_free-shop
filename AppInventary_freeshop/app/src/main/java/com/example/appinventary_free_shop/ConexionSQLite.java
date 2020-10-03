@@ -154,7 +154,7 @@ ArrayList<Dto>categoriasList;
         Dto categorias = null;
         categoriasList = new ArrayList<Dto>();
         try{
-            Cursor fila = bd.rawQuery("select * from tb_categorias", null);
+            Cursor fila = bd.rawQuery("select * from tb_categoria", null);
             while (fila.moveToNext()){
                 categorias = new Dto();
                 categorias.setId_categoria(fila.getInt(0));
