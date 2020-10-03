@@ -24,7 +24,6 @@ public class tb_categoria extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tb_categoria);
 
-
         et_id=(EditText) findViewById(R.id.et_id_categoria);
         et_nombre =(EditText) findViewById(R.id.et_nom_categoria);
         et_estado = (EditText) findViewById(R.id.et_estado_categoria);
@@ -55,7 +54,7 @@ public class tb_categoria extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void limparDatosCategoria(){
+    public void limpiarDatosCategoria(){
         et_id.setText(null);
         et_nombre.setText(null);
         et_estado.setText(null);
@@ -89,10 +88,10 @@ public class tb_categoria extends AppCompatActivity implements View.OnClickListe
 
                 if(conexion.InertCategoria(datos)){
                     Toast.makeText(this,"Registro agregado exitosamente", Toast.LENGTH_SHORT).show();
-                    limparDatosCategoria();
+                    limpiarDatosCategoria();
                 }else{
                     Toast.makeText(getApplicationContext(),"Error. ya existe un registro con\n"+"ID: "+et_id.getText().toString(),Toast.LENGTH_SHORT).show();
-                    limparDatosCategoria();
+                    limpiarDatosCategoria();
                 }
             }catch (Exception e){
                 Toast.makeText(this,"ERROR, dato ya existente.",Toast.LENGTH_SHORT).show();
