@@ -180,7 +180,7 @@
             />
 
         <EditText
-            android:id="@+id/pregunta"
+            android:id="@+id/ed_pregunta"
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
@@ -207,10 +207,11 @@
 
         <Button
             android:layout_marginTop="25dp"
-            android:id="@+id/btn_crearusuario"
+            android:id="@+id/btn_usuario"
             android:text="crear"
             android:layout_gravity="center"
             android:gravity="center"
+            android:onClick="alta"
             android:background="@drawable/btn"
             android:layout_width="300dp"
             android:layout_height="match_parent"

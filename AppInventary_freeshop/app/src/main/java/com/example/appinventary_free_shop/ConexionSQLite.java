@@ -28,7 +28,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
         db.execSQL("create table tb_categoria(id_categoria interger(5)not null primary key,nom_categoria text(50)not null,estado_categoria interger(1)not null)");
 
-        db.execSQL("create table tb_usuario(id_usuario interger(11)not null primary key,nombre text(60)not null,apellido text(30)not null,correo text(45)not null,usuario text(30)not null,clave text(150)not null,tipo interger(1)not null,estado text(1)not null,pregunta text(60),respuesta text(35)not null,fecha_registro timestamp)");
+        db.execSQL("create table tb_usuario(id_usuario interger(11)not null primary key,nombre text(60)not null,apellido text(30)not null,correo text(45)not null,usuario text(30)not null,clave text(150)not null,tipo interger(1)not null,estado interger(1)not null,pregunta text(60),respuesta text(35)not null,fecha_registro timestamp)");
 
 
         db.execSQL("insert into tb_categoria values('1','Cat1','2')");
@@ -55,42 +55,53 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
     }
 
-    public boolean InserTradicionaltb_producto(Dto datos) {
 
-        boolean estado = true;
+    public boolean InsertTradicional(Dto datos) {
+
+        boolean estad = true;
         int resultado;
         //SQLiteDatabase bd = this.getWritableDatabase();
         try {
-            int id_producto = datos.getId_producto();
-            String nom_producto = datos.getNom_producto();
-            String des_producto = datos.getDes_producto();
-            double stock = datos.getStock();
-            double precio = datos.getPrecio();
-            String unidade_de_medida = datos.getUnidad_de_medida();
-            double estado_producto = datos.getEstado_producto();
-            int categoria = datos.getCategoria();
+
+
+
+
+
+            int id_usuario = datos.getId_usuario();
+            String nombre = datos.getNombre();
+            String apellido = datos.getApellido();
+            String correo = datos.getCorreo();
+            String usuario = datos.getUsuario();
+            String clave = datos.getClave();
+            int tipo = datos.getTipo();
+            int estado = datos.getEstado();
+            String pregunta = datos.getPregunta();
+            String respuesta = datos.getRespuesta();
+
+
+
             //Cursor fila = this.getWritableDatabase().rawQuery("select codigo from articulos
-            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_producto='" + id_producto + "'", null);
+            Cursor fila = bd().rawQuery("select nombre from tb_usuario where nombre='" + nombre + "'", null);
             if (fila.moveToFirst() == true) {
-                estado = false;
+                estad = false;
             } else {
-                String SQL = "INSERT INTO tb_producto \n" +
-                        "(codigo,descripcion,precio)\n" +
+                String SQL = "INSERT INTO tb_usuario\n" +
+                        "(id_usuario,)\n" +
                         "VALUES \n" +
-                        "('" + String.valueOf(id_producto) + "', '" + nom_producto + "', '" + des_producto + "','" + String.valueOf(stock) + "','" + String.valueOf(precio) + "','" + unidade_de_medida + "','" + String.valueOf(precio) + "','" + String.valueOf(categoria) + "','" + getDateTime() + "');";
+                        "('" + String.valueOf(id_usuario) + "', '" + nombre + "', '" + apellido + "', '" + correo+ "', '" + usuario + "', '" + clave + "','" + String.valueOf(tipo) + "','" + String.valueOf(estado) + "','" + pregunta + "','" +respuesta + "');";
                 bd().execSQL(SQL);
                 bd().close();
  /*
  this.getWritableDatabase().execSQL(SQL);
  this.getWritableDatabase().close();
  */
-                estado = true;
+                estad = true;
             }
         } catch (Exception e) {
-            estado = false;
+            estad = false;
             Log.e("error.", e.toString());
         }
-        return estado;
+        return estad;
     }
 
     private String getDateTime() {
