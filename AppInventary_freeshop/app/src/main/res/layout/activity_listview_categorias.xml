@@ -20,9 +20,26 @@
         android:text="LISTA DE CATEGORIAS:"
         android:textSize="26dp"/>
     <SearchView
+        android:id="@+id/search_categoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="#fff"
+        android:queryHint="Search"
         />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
 </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView_categorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="35dp">
+
+    </ListView>
 </RelativeLayout>
