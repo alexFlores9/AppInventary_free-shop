@@ -11,11 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 public class ConexionSQLite extends SQLiteOpenHelper {
+boolean estadoDelete = true;
+ArrayList<String>listaCategorias;
+ArrayList<Dto>categoriasList;
 
     public ConexionSQLite(Context context) {
         super(context, "bd_inventario", null, 1);
@@ -143,5 +147,32 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         }
         return estado;
     }
+
+   public ArrayList<String>consultaCategorias1(){
+        boolean estado = false;
+        SQLiteDatabase bd = this.getReadableDatabase();
+        Dto categorias = null;
+        categoriasList = new ArrayList<Dto>();
+        try{
+            Cursor fila = bd.rawQuery("select * from tb_categorias", null);
+            while (fila.moveToNext()){
+                categorias = new Dto();
+                categorias.setId_categoria(fila.getInt(0));
+                categorias.setNom_categoria(fila.getString(1));
+                categorias.setEstado_categoria(fila.getInt(2));
+
+                categoriasList.add(categorias);
+            }
+            listaCategorias = new ArrayList<>();
+
+            for (int i = 0; i <= categoriasList.size(); i++){
+                listaCategorias.add(categoriasList.get(i).getId_categoria()+"-"+ categoriasList.get(i).getEstado_categoria());
+            }
+        }catch (Exception e){
+
+        }
+
+        return listaCategorias;
+   }
     //Fin de espacio asignado para registro de tabla categorias
 }

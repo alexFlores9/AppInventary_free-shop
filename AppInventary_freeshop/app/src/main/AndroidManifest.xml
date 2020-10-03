@@ -11,7 +11,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".listview_categorias"></activity>
         <activity android:name=".tb_categoria">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".tb_producto" />
         <activity android:name=".slash"></activity>
@@ -19,11 +23,7 @@
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".tb_usuario">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
