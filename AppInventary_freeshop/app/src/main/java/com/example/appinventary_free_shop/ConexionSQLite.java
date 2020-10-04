@@ -20,6 +20,8 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 boolean estadoDelete = true;
 ArrayList<String>listaCategorias;
 ArrayList<Dto>categoriasList;
+ArrayList<String>listaProductos;
+ArrayList<Dto>productoList;
 
     public ConexionSQLite(Context context) {
         super(context, "bd_inventario", null, 1);
@@ -118,7 +120,7 @@ ArrayList<Dto>categoriasList;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String fecha1 = sdf.format(cal.getTime());
 
-    //Espacio designado para registros de la tabla Categorias
+    //Espacio asignado para registros de la tabla Categorias
     public boolean InertCategoria(Dto datos){
         boolean estado = true;
         int resultado;
@@ -219,6 +221,51 @@ ArrayList<Dto>categoriasList;
         }
         return categoriasList;
     }
-
     //Fin de espacio asignado para registro de tabla categorias
+
+
+
+
+
+    //Espacio asignado para tabla productos
+    //tb_producto(id_producto interger(9) not null primary key, nom_producto text(50) not null,des_producto text(90) not null,
+    // stock decimal(3,2) not null,precio decimal(3,2),unidad_de_medida text(20) not null,
+    // estado_producto interger(1),categoria interger(5)not null,fecha_entrada datetime not null)")
+    public boolean insertProducto(Dto datos){
+        boolean estado = true;
+        int resultado;
+
+        try{
+            int id_producto = datos.getId_producto();
+            String nom_producto = datos.getNom_producto();
+            String des_producto = datos.getDes_producto();
+            double stock = datos.getStock();
+            double precio = datos.getPrecio();
+            String unidad_de_medida = datos.getUnidad_de_medida();
+            int estado_producto = datos.getEstado_producto();
+            int categoria = datos.getCategoria();
+
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String fecha2 = sdf.format(cal.getTime());
+            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_prodcuto"+datos.getId_producto()+"",null);
+            if (fila.moveToFirst()==true){
+                estado = false;
+            }else{
+                String SQL = "INSERT INTO tb_producto \n"+
+                        "(id_producto,nom_producto,des_producto,stock,precio,unidad_de_medida,estado_producto,categoria)\n"+
+                        "VALUES\n"+
+                        "(?,?,?);";
+
+                bd().execSQL(SQL,new String[]{String.valueOf(id_producto),nom_producto,des_producto,String.valueOf(stock),String.valueOf(precio),
+                        unidad_de_medida,String.valueOf(estado_producto),String.valueOf(categoria)});
+            }
+        }catch (Exception e){
+            estado = false;
+            Log.e("error.",e.toString());
+        }
+        return estado;
+    }
+
+    //fin de espacio asignado para tabla productos
 }
