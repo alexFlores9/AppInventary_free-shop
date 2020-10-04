@@ -3,7 +3,6 @@ package com.example.appinventary_free_shop;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -219,11 +218,6 @@ ArrayList<Dto>categoriasList;
 
         }
         return categoriasList;
-    }
-    public Cursor Consultar(String usu, String pass) throws SQLException{
-        Cursor mcursor =null;
-        mcursor=this.getReadableDatabase().query("tb_usuario",new String[]{"id_usuario","nombre","apellido","correo","usuario","clave","tipo","estado","pregunta","respuesta"},"usuario like'"+usu+"'"+"and clave like'"+pass+"'",null,null,null,null);
-   return mcursor;
     }
 
     //Fin de espacio asignado para registro de tabla categorias
