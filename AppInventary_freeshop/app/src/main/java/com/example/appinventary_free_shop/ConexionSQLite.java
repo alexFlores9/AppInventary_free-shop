@@ -21,7 +21,7 @@ boolean estadoDelete = true;
 ArrayList<String>listaCategorias;
 ArrayList<Dto>categoriasList;
 ArrayList<String>listaProductos;
-ArrayList<Dto>productoList;
+ArrayList<Dto>productosList;
 
     public ConexionSQLite(Context context) {
         super(context, "bd_inventario", null, 1);
@@ -178,8 +178,7 @@ ArrayList<Dto>productoList;
 
         return listaCategorias;
    }
-   //consulta para Listview de Categorias
-
+   //consulta para obtener Categorias
     public  ArrayList<String> obtenerListaCategorias(){
         listaCategorias= new ArrayList<String>();
         listaCategorias.add("Seleccione");
@@ -225,12 +224,7 @@ ArrayList<Dto>productoList;
 
 
 
-
-
-    //Espacio asignado para tabla productos
-    //tb_producto(id_producto interger(9) not null primary key, nom_producto text(50) not null,des_producto text(90) not null,
-    // stock decimal(3,2) not null,precio decimal(3,2),unidad_de_medida text(20) not null,
-    // estado_producto interger(1),categoria interger(5)not null,fecha_entrada datetime not null)")
+    //Inicio de espacio asignado para tabla producto
     public boolean insertProducto(Dto datos){
         boolean estado = true;
         int resultado;
@@ -266,6 +260,85 @@ ArrayList<Dto>productoList;
         }
         return estado;
     }
+    //consulta listView para productos
+    public ArrayList<String>consultaListaProductos1(){
+        boolean estado = false;
+        SQLiteDatabase bd = this.getReadableDatabase();
 
+        Dto productos = null;
+        productosList = new ArrayList<>();
+        try {
+            Cursor fila = bd.rawQuery("select * from tb_producto",null);
+            while (fila.moveToNext()){
+                productos = new Dto();
+                productos.setId_producto(fila.getInt(0));
+                productos.setNom_producto(fila.getString(1));
+                productos.setDes_producto(fila.getString(2));
+                productos.setStock(fila.getDouble(3));
+                productos.setPrecio(fila.getDouble(4));
+                productos.setUnidad_de_medida(fila.getString(5));
+                productos.setEstado_producto(fila.getInt(6));
+                productos.setCategoria(fila.getInt(7));
+
+                productosList.add(productos);
+
+            }
+            listaProductos = new ArrayList<>();
+
+            for (int i = 0; i <= productosList.size();i++){
+                listaProductos.add(productosList.get(i).getId_producto()+"-"+productosList.get(i).getDes_producto());
+            }
+        }catch (Exception e){
+
+        }
+        return listaProductos;
+    }
+
+    //consulta para obtener producto
+    public ArrayList<String>obtenerListaProductos(){
+        listaProductos = new ArrayList<String>();
+        listaProductos.add("Selecione: ");
+
+        for (int i = 0; i<productosList.size();i++){
+            listaProductos.add(productosList.get(i).getId_producto()+"-"+""+productosList.get(i).getDes_producto());
+        }
+        return listaProductos;
+    }
+
+    public ArrayList<Dto>consultaListaProductos(){
+        boolean estado = false;
+
+        SQLiteDatabase bd = this.getReadableDatabase();
+        Dto productos = null;
+        productosList = new ArrayList<Dto>();
+        try {
+            Cursor fila = bd.rawQuery("select * from tb_producto",null);
+            while (fila.moveToNext()){
+                productos= new Dto();
+                productos.setId_producto(fila.getInt(0));
+                productos.setNom_producto(fila.getString(1));
+                productos.setDes_producto(fila.getString(2));
+                productos.setStock(fila.getDouble(3));
+                productos.setPrecio(fila.getDouble(4));
+                productos.setUnidad_de_medida(fila.getString(5));
+                productos.setEstado_producto(fila.getInt(6));
+                productos.setCategoria(fila.getInt(7));
+
+                productosList.add(productos);
+                Log.i("id_producto",String.valueOf(productos.getId_producto()));
+                Log.i("nom_producto",productos.getNom_producto());
+                Log.i("des_producto",productos.getDes_producto());
+                Log.i("stock",String.valueOf(productos.getStock()));
+                Log.i("precio",String.valueOf(productos.getPrecio()));
+                Log.i("unidad_de_medida",productos.getUnidad_de_medida());
+                Log.i("estado_producto", String.valueOf(productos.getEstado_producto()));
+                Log.i("categoria",String.valueOf(productos.getCategoria()));
+
+            }
+        }catch (Exception e){
+
+        }
+        return productosList;
+    }
     //fin de espacio asignado para tabla productos
 }
