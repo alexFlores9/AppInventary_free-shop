@@ -9,21 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".consulta_spinner_categoria"></activity>
+        <activity android:name=".Principal"></activity>
+        <activity android:name=".consulta_spinner_categoria" />
         <activity android:name=".detalles_categorias" />
-        <activity android:name=".listview_categorias">
+        <activity android:name=".listview_categorias"></activity>
+        <activity android:name=".tb_categoria" />
+        <activity android:name=".tb_producto" />
+        <activity android:name=".slash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tb_categoria" />
-        <activity android:name=".tb_producto" />
-        <activity android:name=".slash" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
+        <activity android:name=".Login" />
         <activity android:name=".tb_usuario" />
         <activity
             android:name=".MainActivity"

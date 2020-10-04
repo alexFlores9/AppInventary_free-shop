@@ -1,12 +1,16 @@
 package com.example.appinventary_free_shop;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,7 +51,7 @@ private Cursor fila;
                     Cursor cursor=conexion.Consultar(et1.getText().toString(),et2.getText().toString());
 
                     if (cursor.getCount()>0){
-                        Intent intent = new Intent(getApplicationContext(),tb_usuario.class);
+                        Intent intent = new Intent(getApplicationContext(),Principal.class);
                         startActivity(intent);
                     }else{
                         Toast.makeText(Login.this, "error! usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT).show();
@@ -62,6 +66,26 @@ private Cursor fila;
 
 
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            new android.app.AlertDialog.Builder(this)
+                    .setIcon(R.drawable.ic_seguro)
+                    .setTitle("Warning")
+                    .setMessage("Realmente desea salir?")
+                    .setNegativeButton(android.R.string.cancel,null)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
+                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finishAffinity();
+                        }
+                    })
+                    .show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }
