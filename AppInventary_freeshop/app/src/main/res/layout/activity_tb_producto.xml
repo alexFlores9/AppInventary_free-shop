@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".tb_producto">
 
 
@@ -35,6 +36,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:src="@drawable/freeshop"/>
+            <LinearLayout
+                android:layout_marginTop="29dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="ID:"
+                    />
+                <EditText
+                    android:id="@+id/ed_id_producto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    />
+            </LinearLayout>
 <LinearLayout
     android:layout_marginTop="29dp"
     android:layout_width="match_parent"
@@ -50,9 +72,10 @@
         android:text="Nombre Producto:"
         />
     <EditText
-        android:id="@+id/ed_nombre_pro"
+        android:id="@+id/ed_nombre_producto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:inputType="text"
         />
 </LinearLayout>
 
@@ -72,9 +95,10 @@
                     android:text="Descripción:"
                     />
                 <EditText
-                    android:id="@+id/ed_descripcion_pro"
+                    android:id="@+id/ed_descripcion_producto"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:inputType="text"
                     />
             </LinearLayout>
 
@@ -95,9 +119,10 @@
                     />
 
                 <EditText
-                    android:id="@+id/ed_stock_pro"
+                    android:id="@+id/ed_stock_producto"
                     android:layout_width="100dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:inputType="number"/>
 
                 <TextView
                     android:layout_marginTop="15dp"
@@ -109,9 +134,10 @@
                     android:text="Precio:"
                     />
                 <EditText
-                    android:id="@+id/ed_precio_pro"
+                    android:id="@+id/ed_precio_producto"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
                     />
             </LinearLayout>
 
@@ -130,9 +156,10 @@
                     android:text="Unidade de medida:"
                     />
                 <EditText
-                    android:id="@+id/ed_unidad_pro"
+                    android:id="@+id/ed_unidad_de_medida"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:inputType="text"
                     />
             </LinearLayout>
 
@@ -152,9 +179,10 @@
                     />
 
                 <EditText
-                    android:id="@+id/ed_estado_pro"
+                    android:id="@+id/ed_estado_producto"
                     android:layout_width="100dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:inputType="number"/>
 
                 <TextView
                     android:layout_marginTop="15dp"
@@ -166,17 +194,26 @@
                     android:text="Categoria:"
                     />
                 <EditText
-                    android:id="@+id/ed_categoria_pro"
+                    android:id="@+id/ed_categoria_producto"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
+                    android:inputType="number"
                     />
-            </LinearLayout>
 
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_guardar_producto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="campoproducto"
+                android:text="Guardar"
+                />
             <TextView
                 android:layout_marginTop="100dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="     "/>
+
         </LinearLayout>
     </ScrollView>
 
