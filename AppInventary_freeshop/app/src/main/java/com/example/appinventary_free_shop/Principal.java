@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
@@ -20,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class Principal extends AppCompatActivity{
     private FloatingActionMenu menu;
     private FloatingActionButton item1, item2,item3;
+    private TextView tv;
     modal_Toast_Custom mo = new modal_Toast_Custom();
 
     @Override
@@ -28,7 +30,32 @@ public class Principal extends AppCompatActivity{
         setContentView(R.layout.activity_principal);
 
 
+        // Establecemos la referencia al TextView para poder utilizarlo en el
+        // código.
+        tv = (TextView) findViewById(R.id.tv);
 
+        // Sacamos el intent con el que se ha iniciado la Activity.
+        Intent i = getIntent();
+
+        // Del intent sacamos el Bundle en el que hemos introducido los datos en
+        // la primera Activity.
+        Bundle b = i.getExtras();
+
+        // Comprobamos que el Bundle contenga datos, para evitar posibles
+        // errores. Si no lo comprobamos y el Intent no tiene incorporado un
+        // bundle, al intentar utilizar el bundle después nos saltará una
+        // excepción por intentar un objeto que no existe
+        // (NullPointerException).
+        if (b != null) {
+            String datos = b.getString("datos");
+
+            // Establecemos el texto del TextView a partir de la cadena de texto
+            // que hemos sacado del Bundle.
+            tv.setText(datos);
+
+            // Se puede hacer la asignación directamente:
+            tv.setText(getIntent().getExtras().getString("datos"));
+        }
 
 
 

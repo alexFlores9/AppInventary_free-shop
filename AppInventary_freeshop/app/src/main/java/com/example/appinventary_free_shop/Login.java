@@ -52,8 +52,27 @@ private Cursor fila;
                     Cursor cursor=conexion.Consultar(et1.getText().toString(),et2.getText().toString());
 
                     if (cursor.getCount()>0){
-                        Intent intent = new Intent(getApplicationContext(),Principal.class);
-                        startActivity(intent);
+                        // Utilizamos un objeto de la clase Bundle para incluir un par
+                        // "Clave/Valor", este objeto tendrá como clave "datos", y su valor
+                        // será el texto que se introduzca en el EditText.
+                        Bundle b = new Bundle();
+                        b.putString("datos", et1.getText().toString());
+
+                        // La clase Intent establece un link entre esta Activity y la nueva
+                        // que queremos lanzar, para ello al instanciar el Intent
+                        // introducimos como parámetros esta propia Activity, y la clase que
+                        // representa a la nueva Activity.
+                        Intent i = new Intent(Login.this,
+                                Principal.class);
+
+                        // En el Intent añadimos el Bundle, para que lleve la información a
+                        // la siguiente Activity.
+                        i.putExtras(b);
+
+                        // Lanzamos la siguiente Activity.
+                        startActivity(i);
+                   //     Intent intent = new Intent(getApplicationContext(),Principal.class);
+                     //   startActivity(intent);
                         Toast.makeText(Login.this, "Bienvenido \n" + et1.getText().toString(), Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(Login.this, "error! usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT).show();

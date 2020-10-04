@@ -21,14 +21,40 @@
             android:gravity="center"
             android:textSize="35dp"/>
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:textColor="#F60303"
-            android:gravity="center"
-            android:textSize="35dp"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bienvenido:"
+                android:textColor="#F60303"
+                android:gravity="center"
+                android:textSize="35dp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_marginStart="15dp"
+                android:id="@+id/tv"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textColorHighlight="#F60303"
+                android:textColorHint="#F60303"
+                android:textColorLink="#F60303"
+
+                android:textColor="#F60303"
+                android:gravity="center"
+                android:textSize="35dp"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
+
 
         <ImageView
             android:layout_marginTop="12dp"
