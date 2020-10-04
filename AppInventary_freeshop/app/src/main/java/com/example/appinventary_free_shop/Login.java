@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 EditText et1,et2;
-Button btn1;
+Button btn1,btn2;
 private Cursor fila;
     boolean inputE0=false;
     boolean inputE1=false;
@@ -25,7 +25,16 @@ private Cursor fila;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
-
+        et1= findViewById(R.id.tv_usu);
+        et2=findViewById(R.id.tv_pass);
+        btn2=findViewById(R.id.btn_prueba);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),tb_usuario.class);
+                startActivity(intent);
+            }
+        });
 
         btn1=findViewById(R.id.btn_val);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -35,21 +44,22 @@ private Cursor fila;
                 et2=findViewById(R.id.tv_pass);
 
                 try {
-                Cursor cursor=conexion.Consultar(et1.getText().toString(),et2.getText().toString());
+                    Cursor cursor=conexion.Consultar(et1.getText().toString(),et2.getText().toString());
 
-         if (cursor.getCount()>0){
-             Intent intent = new Intent(getApplicationContext(),tb_usuario.class);
-             startActivity(intent);
-         }else{
-             Toast.makeText(Login.this, "error no  creado", Toast.LENGTH_SHORT).show();
-         }
-         et1.setText("");
+                    if (cursor.getCount()>0){
+                        Intent intent = new Intent(getApplicationContext(),tb_usuario.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(Login.this, "error! usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                    }
+                    et1.setText("");
                     et2.setText("");
                 }catch (SQLException e){
                     e.printStackTrace();
                 }
             }
         });
+
 
     }
 
