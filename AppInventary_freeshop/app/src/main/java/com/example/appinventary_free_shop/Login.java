@@ -1,6 +1,7 @@
 package com.example.appinventary_free_shop;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
@@ -46,13 +47,14 @@ private Cursor fila;
             public void onClick(View v) {
                 et1= findViewById(R.id.tv_usu);
                 et2=findViewById(R.id.tv_pass);
-
+                datos.setUsuario(et1.getText().toString());
                 try {
                     Cursor cursor=conexion.Consultar(et1.getText().toString(),et2.getText().toString());
 
                     if (cursor.getCount()>0){
                         Intent intent = new Intent(getApplicationContext(),Principal.class);
                         startActivity(intent);
+                        Toast.makeText(Login.this, "Bienvenido \n" + et1.getText().toString(), Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(Login.this, "error! usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                     }
@@ -66,6 +68,10 @@ private Cursor fila;
 
 
     }
+
+    private Object prue() {
+        return et1.getText().toString();
+        }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
         if (keyCode == KeyEvent.KEYCODE_BACK){

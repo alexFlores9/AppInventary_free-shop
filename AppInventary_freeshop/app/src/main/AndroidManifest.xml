@@ -15,20 +15,24 @@
 
         <activity android:name=".listview_categorias"></activity>
         <activity android:name=".tb_categoria" />
-
-        <activity android:name=".slash"></activity>
-
-
-        <activity android:name=".tb_producto">
+        <activity android:name=".tb_producto" />
+        <activity android:name=".slash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
-        <activity android:name=".Login" />
 
+
+
+
+
+
+        <activity android:name=".Login" />
+=======
 
 
         <activity android:name=".tb_usuario" />

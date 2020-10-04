@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -40,7 +42,7 @@ public class Principal extends AppCompatActivity{
             new android.app.AlertDialog.Builder(this)
                     .setIcon(R.drawable.ic_seguro)
                     .setTitle("Warning")
-                    .setMessage("Realmente desea ir al inicio?")
+                    .setMessage("Realmente desea ir al inicio? \n tendras que iniciar sesion nuevamente!")
                     .setNegativeButton(android.R.string.cancel,null)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
@@ -84,4 +86,42 @@ public class Principal extends AppCompatActivity{
     public void item3(View view) {
         cerrarAplicacion();
     }
+
+    public void aggpro(View view) {
+        Intent intent = new Intent(getApplicationContext(), tb_producto.class);
+        startActivity(intent);
+    }
+    public void verpro(View view) {
+            Intent intent = new Intent(getApplicationContext(),listview_productos.class);
+            startActivity(intent);
+        }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.CrearC) {
+            Intent intent = new Intent(getApplicationContext(),tb_categoria.class);
+            startActivity(intent);
+            return true;
+        }else if (id==R.id.VerC){
+            Intent intent = new Intent(getApplicationContext(),listview_categorias.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

@@ -2,8 +2,10 @@ package com.example.appinventary_free_shop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,7 +81,26 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
 
         }
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            new android.app.AlertDialog.Builder(this)
+                    .setIcon(R.drawable.ic_seguro)
+                    .setTitle("Warning")
+                    .setMessage("Realmente desea ir al inicio?")
+                    .setNegativeButton(android.R.string.cancel,null)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     public void limpiarDatosProducto(){
         ed_id_producto.setText(null);
@@ -157,7 +178,7 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
                 datos.setEstado_producto(Integer.parseInt(ed_estado_producto.getText().toString()));
                 datos.setCategoria(Integer.parseInt(ed_categoria_producto.getText().toString()));
 
-            if(conexion.insertProducto(datos)){
+            if(conexion.InsertTradicional(datos)){
                 Toast.makeText(this,"Registro agregado exitosamente", Toast.LENGTH_SHORT).show();
                 limpiarDatosProducto();
                 }else{
