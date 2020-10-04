@@ -68,14 +68,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <Button
                 android:layout_width="150dp"
+                android:layout_height="33dp"
                 android:layout_marginStart="20dp"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:background="@drawable/btn"
-                android:text="Agregar producto"
                 android:onClick="aggpro"
-                android:layout_marginLeft="20dp" />
+                android:text="Agregar producto" />
             <Button
                 android:layout_width="150dp"
                 android:layout_marginStart="35dp"

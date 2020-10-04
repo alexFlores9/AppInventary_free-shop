@@ -53,6 +53,7 @@
             android:layout_marginStart="20dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btn"
+            android:onClick="registrarpro"
             android:text="Agregar producto"
             android:layout_marginLeft="20dp" />
         <Button

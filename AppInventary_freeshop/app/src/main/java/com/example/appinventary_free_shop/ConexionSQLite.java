@@ -222,13 +222,13 @@ ArrayList<Dto>productosList;
         }
         return categoriasList;
     }
+
+    //Fin de espacio asignado para registro de tabla categorias
     public Cursor Consultar(String usu, String pass) throws SQLException {
         Cursor mcursor =null;
         mcursor=this.getReadableDatabase().query("tb_usuario",new String[]{"id_usuario","nombre","apellido","correo","usuario","clave","tipo","estado","pregunta","respuesta"},"usuario like'"+usu+"'"+"and clave like'"+pass+"'",null,null,null,null);
         return mcursor;
     }
-    //Fin de espacio asignado para registro de tabla categorias
-
     //Inicio de espacio asignado para tabla producto
     public boolean insertProducto(Dto datos){
         boolean estado = true;
@@ -247,7 +247,7 @@ ArrayList<Dto>productosList;
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String fecha2 = sdf.format(cal.getTime());
-            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_prodcuto"+datos.getId_producto()+"",null);
+            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_producto"+datos.getId_producto()+"",null);
             if (fila.moveToFirst()==true){
                 estado = false;
             }else{
@@ -305,17 +305,20 @@ ArrayList<Dto>productosList;
         listaProductos.add("Selecione: ");
 
         for (int i = 0; i<productosList.size();i++){
-            listaProductos.add(productosList.get(i).getId_producto()+"-"+""+productosList.get(i).getDes_producto());
+            listaProductos.add(productosList.get(i).getId_producto()+"-"+
+                    ""+productosList.get(i).getDes_producto());
         }
         return listaProductos;
     }
 
-    public ArrayList<Dto>consultaListaProductos(){
+    public ArrayList<Dto>consultaProductos(){
         boolean estado = false;
 
         SQLiteDatabase bd = this.getReadableDatabase();
         Dto productos = null;
         productosList = new ArrayList<Dto>();
+
+
         try {
             Cursor fila = bd.rawQuery("select * from tb_producto",null);
             while (fila.moveToNext()){
@@ -330,6 +333,7 @@ ArrayList<Dto>productosList;
                 productos.setCategoria(fila.getInt(7));
 
                 productosList.add(productos);
+
                 Log.i("id_producto",String.valueOf(productos.getId_producto()));
                 Log.i("nom_producto",productos.getNom_producto());
                 Log.i("des_producto",productos.getDes_producto());
