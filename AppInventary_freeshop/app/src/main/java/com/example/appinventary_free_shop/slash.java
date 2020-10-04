@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.appinventary_free_shop.ui.login.LoginActivity;
+
 
 public class slash extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class slash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent= new Intent(slash.this, LoginActivity.class);
+                Intent intent= new Intent(slash.this, Login.class);
                 startActivity(intent);
                 finish();
             }

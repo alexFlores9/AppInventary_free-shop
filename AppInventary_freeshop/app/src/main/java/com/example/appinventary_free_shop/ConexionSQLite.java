@@ -20,8 +20,6 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 boolean estadoDelete = true;
 ArrayList<String>listaCategorias;
 ArrayList<Dto>categoriasList;
-ArrayList<String>listaProductos;
-ArrayList<Dto>productosList;
 
     public ConexionSQLite(Context context) {
         super(context, "bd_inventario", null, 1);
@@ -120,7 +118,7 @@ ArrayList<Dto>productosList;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String fecha1 = sdf.format(cal.getTime());
 
-    //Espacio asignado para registros de la tabla Categorias
+    //Espacio designado para registros de la tabla Categorias
     public boolean InertCategoria(Dto datos){
         boolean estado = true;
         int resultado;
@@ -178,7 +176,8 @@ ArrayList<Dto>productosList;
 
         return listaCategorias;
    }
-   //consulta para obtener Categorias
+   //consulta para Listview de Categorias
+
     public  ArrayList<String> obtenerListaCategorias(){
         listaCategorias= new ArrayList<String>();
         listaCategorias.add("Seleccione");
@@ -220,125 +219,6 @@ ArrayList<Dto>productosList;
         }
         return categoriasList;
     }
+
     //Fin de espacio asignado para registro de tabla categorias
-
-
-
-    //Inicio de espacio asignado para tabla producto
-    public boolean insertProducto(Dto datos){
-        boolean estado = true;
-        int resultado;
-
-        try{
-            int id_producto = datos.getId_producto();
-            String nom_producto = datos.getNom_producto();
-            String des_producto = datos.getDes_producto();
-            double stock = datos.getStock();
-            double precio = datos.getPrecio();
-            String unidad_de_medida = datos.getUnidad_de_medida();
-            int estado_producto = datos.getEstado_producto();
-            int categoria = datos.getCategoria();
-
-            Calendar cal = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String fecha2 = sdf.format(cal.getTime());
-            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_prodcuto"+datos.getId_producto()+"",null);
-            if (fila.moveToFirst()==true){
-                estado = false;
-            }else{
-                String SQL = "INSERT INTO tb_producto \n"+
-                        "(id_producto,nom_producto,des_producto,stock,precio,unidad_de_medida,estado_producto,categoria)\n"+
-                        "VALUES\n"+
-                        "(?,?,?);";
-
-                bd().execSQL(SQL,new String[]{String.valueOf(id_producto),nom_producto,des_producto,String.valueOf(stock),String.valueOf(precio),
-                        unidad_de_medida,String.valueOf(estado_producto),String.valueOf(categoria)});
-            }
-        }catch (Exception e){
-            estado = false;
-            Log.e("error.",e.toString());
-        }
-        return estado;
-    }
-    //consulta listView para productos
-    public ArrayList<String>consultaListaProductos1(){
-        boolean estado = false;
-        SQLiteDatabase bd = this.getReadableDatabase();
-
-        Dto productos = null;
-        productosList = new ArrayList<>();
-        try {
-            Cursor fila = bd.rawQuery("select * from tb_producto",null);
-            while (fila.moveToNext()){
-                productos = new Dto();
-                productos.setId_producto(fila.getInt(0));
-                productos.setNom_producto(fila.getString(1));
-                productos.setDes_producto(fila.getString(2));
-                productos.setStock(fila.getDouble(3));
-                productos.setPrecio(fila.getDouble(4));
-                productos.setUnidad_de_medida(fila.getString(5));
-                productos.setEstado_producto(fila.getInt(6));
-                productos.setCategoria(fila.getInt(7));
-
-                productosList.add(productos);
-
-            }
-            listaProductos = new ArrayList<>();
-
-            for (int i = 0; i <= productosList.size();i++){
-                listaProductos.add(productosList.get(i).getId_producto()+"-"+productosList.get(i).getDes_producto());
-            }
-        }catch (Exception e){
-
-        }
-        return listaProductos;
-    }
-
-    //consulta para obtener producto
-    public ArrayList<String>obtenerListaProductos(){
-        listaProductos = new ArrayList<String>();
-        listaProductos.add("Selecione: ");
-
-        for (int i = 0; i<productosList.size();i++){
-            listaProductos.add(productosList.get(i).getId_producto()+"-"+""+productosList.get(i).getDes_producto());
-        }
-        return listaProductos;
-    }
-
-    public ArrayList<Dto>consultaListaProductos(){
-        boolean estado = false;
-
-        SQLiteDatabase bd = this.getReadableDatabase();
-        Dto productos = null;
-        productosList = new ArrayList<Dto>();
-        try {
-            Cursor fila = bd.rawQuery("select * from tb_producto",null);
-            while (fila.moveToNext()){
-                productos= new Dto();
-                productos.setId_producto(fila.getInt(0));
-                productos.setNom_producto(fila.getString(1));
-                productos.setDes_producto(fila.getString(2));
-                productos.setStock(fila.getDouble(3));
-                productos.setPrecio(fila.getDouble(4));
-                productos.setUnidad_de_medida(fila.getString(5));
-                productos.setEstado_producto(fila.getInt(6));
-                productos.setCategoria(fila.getInt(7));
-
-                productosList.add(productos);
-                Log.i("id_producto",String.valueOf(productos.getId_producto()));
-                Log.i("nom_producto",productos.getNom_producto());
-                Log.i("des_producto",productos.getDes_producto());
-                Log.i("stock",String.valueOf(productos.getStock()));
-                Log.i("precio",String.valueOf(productos.getPrecio()));
-                Log.i("unidad_de_medida",productos.getUnidad_de_medida());
-                Log.i("estado_producto", String.valueOf(productos.getEstado_producto()));
-                Log.i("categoria",String.valueOf(productos.getCategoria()));
-
-            }
-        }catch (Exception e){
-
-        }
-        return productosList;
-    }
-    //fin de espacio asignado para tabla productos
 }

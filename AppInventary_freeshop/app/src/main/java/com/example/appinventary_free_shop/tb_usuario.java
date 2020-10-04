@@ -183,7 +183,8 @@ ed_id = findViewById(R.id.ed_id);
 
                 if (conexion.InsertTradicional(datos)) {
                     Toast.makeText(this, "Registro con exito!!", Toast.LENGTH_SHORT).show();
-                    limpiarDatos();
+                    Intent intent = new Intent(getApplicationContext(),Login.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(this, "Error. Ya existe un registro\n" +
                             "id: " + ed_id.getText().toString(), Toast.LENGTH_SHORT).show();
