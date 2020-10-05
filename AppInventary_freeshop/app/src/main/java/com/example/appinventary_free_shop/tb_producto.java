@@ -141,6 +141,7 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
         }
         if(ed_precio.getText().toString().length()==0){
             ed_precio.setError("Campo obligatorio");
+            Input5=false;
         }else{
             Input5=true;
         }
@@ -178,11 +179,11 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
                 datos.setEstado_producto(Integer.parseInt(ed_estado_producto.getText().toString()));
                 datos.setCategoria(Integer.parseInt(ed_categoria_producto.getText().toString()));
 
-            if(conexion.InsertTradicional(datos)){
+            if(conexion.InsertTradicionalPro(datos)){
                 Toast.makeText(this,"Registro agregado exitosamente", Toast.LENGTH_SHORT).show();
                 limpiarDatosProducto();
                 }else{
-                    Toast.makeText(getApplicationContext(),"Error. ya existe un registro con\n"+"Nombre: "+ed_nombre_producto.getText().toString(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error. ya existe un registro con\n"+"ID: "+ed_id_producto.getText().toString(),Toast.LENGTH_SHORT).show();
                     limpiarDatosProducto();
                 }
             }catch (Exception e){

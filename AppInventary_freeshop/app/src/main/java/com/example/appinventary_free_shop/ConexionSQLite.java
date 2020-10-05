@@ -32,7 +32,7 @@ ArrayList<Dto>productosList;
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table tb_producto(id_producto interger(9) not null primary key, nom_producto text(50) not null,des_producto text(90) not null,stock decimal(3,2) not null,precio decimal(3,2),unidad_de_medida text(20) not null, estado_producto interger(1),categoria interger(5)not null,fecha_entrada datetime not null)");
+        db.execSQL("create table tb_producto(id_producto interger(9) not null primary key, nom_producto text(50) not null,des_producto text(90) not null,stock decimal(3,2) not null,precio decimal(3,2),unidad_de_medida text(20) not null, estado_producto interger(1),categoria interger(5)not null,fecha_entrada timestamp)");
 
         db.execSQL("create table tb_categoria(id_categoria interger(5)not null primary key,nom_categoria text(50)not null,estado_categoria interger(1)not null)");
 
@@ -153,6 +153,8 @@ ArrayList<Dto>productosList;
         return estado;
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////////
    public ArrayList<String>consultaCategorias1(){
         boolean estado = false;
         SQLiteDatabase bd = this.getReadableDatabase();
@@ -171,7 +173,7 @@ ArrayList<Dto>productosList;
             listaCategorias = new ArrayList<>();
 
             for (int i = 0; i <= categoriasList.size(); i++){
-                listaCategorias.add(categoriasList.get(i).getId_categoria()+"-"+ categoriasList.get(i).getEstado_categoria());
+                listaCategorias.add(categoriasList.get(i).getId_categoria()+"-"+ categoriasList.get(i).getNom_categoria());
             }
         }catch (Exception e){
 
@@ -179,6 +181,9 @@ ArrayList<Dto>productosList;
 
         return listaCategorias;
    }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
    //consulta para Listview de Categorias
 
     public  ArrayList<String> obtenerListaCategorias(){
@@ -187,7 +192,7 @@ ArrayList<Dto>productosList;
 
         for(int i= 0;i<categoriasList.size();i++){
             listaCategorias.add(categoriasList.get(i).getId_categoria()+"-" +
-                    ""+categoriasList.get(i).getEstado());
+                    ""+categoriasList.get(i).getNom_categoria());
         }
         return listaCategorias;
     }
@@ -230,6 +235,55 @@ ArrayList<Dto>productosList;
         return mcursor;
     }
     //Inicio de espacio asignado para tabla producto
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public boolean InsertTradicionalPro(Dto datos) {
+
+        boolean estad = true;
+        int resultado;
+        //SQLiteDatabase bd = this.getWritableDatabase();
+        try {
+
+            int id_producto = datos.getId_producto();
+            String nom_producto = datos.getNom_producto();
+            String des_producto = datos.getDes_producto();
+            double stock = datos.getStock();
+            double precio = datos.getPrecio();
+            String unidad_de_medida = datos.getUnidad_de_medida();
+            int estado_producto = datos.getEstado_producto();
+            int categoria = datos.getCategoria();
+
+
+
+            //Cursor fila = this.getWritableDatabase().rawQuery("select codigo from articulos
+            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_producto='" + id_producto + "'", null);
+            if (fila.moveToFirst() == true) {
+                estad = false;
+            } else {
+                String SQL = "INSERT INTO tb_producto\n" +
+                        "(id_producto,nom_producto,des_producto,stock,precio,unidad_de_medida,estado_producto,categoria,fecha_entrada)\n" +
+                        "VALUES \n" +
+                        "('"+String.valueOf(id_producto)+"','"+nom_producto +"','"+des_producto+"','"+stock+"','"+precio+"','"+unidad_de_medida+"','"+String.valueOf(estado_producto)+"','"+String.valueOf(categoria)+"','"+getDateTime()+"');";
+                bd().execSQL(SQL);
+                bd().close();
+ /*
+ this.getWritableDatabase().execSQL(SQL);
+ this.getWritableDatabase().close();
+ */
+                estad = true;
+            }
+        } catch (Exception e) {
+            estad = false;
+            Log.e("error.", e.toString());
+        }
+        return estad;
+    }
+
+
+
+
+
     public boolean insertProducto(Dto datos){
         boolean estado = true;
         int resultado;
@@ -244,20 +298,18 @@ ArrayList<Dto>productosList;
             int estado_producto = datos.getEstado_producto();
             int categoria = datos.getCategoria();
 
-            Calendar cal = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String fecha2 = sdf.format(cal.getTime());
-            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_producto"+datos.getId_producto()+"",null);
+
+            Cursor fila = bd().rawQuery("select id_producto from tb_producto where id_producto"+ id_producto+"",null);
             if (fila.moveToFirst()==true){
                 estado = false;
             }else{
                 String SQL = "INSERT INTO tb_producto \n"+
-                        "(id_producto,nom_producto,des_producto,stock,precio,unidad_de_medida,estado_producto,categoria)\n"+
+                        "(id_producto,nom_producto,des_producto,stock,precio,unidad_de_medida,estado_producto,categoria,fecha_entrada)\n"+
                         "VALUES\n"+
                         "(?,?,?);";
 
                 bd().execSQL(SQL,new String[]{String.valueOf(id_producto),nom_producto,des_producto,String.valueOf(stock),String.valueOf(precio),
-                        unidad_de_medida,String.valueOf(estado_producto),String.valueOf(categoria)});
+                        unidad_de_medida,String.valueOf(estado_producto),String.valueOf(categoria),(getDateTime())});
             }
         }catch (Exception e){
             estado = false;
@@ -265,6 +317,8 @@ ArrayList<Dto>productosList;
         }
         return estado;
     }
+
+
     //consulta listView para productos
     public ArrayList<String>consultaListaProductos1(){
         boolean estado = false;
@@ -291,7 +345,7 @@ ArrayList<Dto>productosList;
             listaProductos = new ArrayList<>();
 
             for (int i = 0; i <= productosList.size();i++){
-                listaProductos.add(productosList.get(i).getId_producto()+"-"+productosList.get(i).getDes_producto());
+                listaProductos.add(productosList.get(i).getId_producto()+"-"+productosList.get(i).getNom_producto());
             }
         }catch (Exception e){
 
@@ -344,6 +398,9 @@ ArrayList<Dto>productosList;
                 Log.i("categoria",String.valueOf(productos.getCategoria()));
 
             }
+           obtenerListaProductos();
+
+
         }catch (Exception e){
 
         }

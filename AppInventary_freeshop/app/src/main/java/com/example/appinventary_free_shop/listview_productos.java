@@ -2,20 +2,26 @@ package com.example.appinventary_free_shop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class listview_productos extends AppCompatActivity {
     ListView listViewProductos;
-    ArrayAdapter adaptador;
-    SearchView searchView;
+    ArrayAdapter adaptador1;
+    SearchView searchVieww;
     ListView listView;
     ArrayList<String> list;
     ArrayAdapter adapter;
@@ -30,13 +36,13 @@ public class listview_productos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview_productos);
 
-        listViewProductos = (ListView)findViewById(R.id.listView_productos);
-        searchView = (SearchView)findViewById(R.id.search_productos);
+        listViewProductos = (ListView)findViewById(R.id.ca);
+        searchVieww = (SearchView)findViewById(R.id.search_productos);
 
-        adaptador = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1,conexion.consultaListaProductos1());
-        listViewProductos.setAdapter(adaptador);
+        adaptador1 = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1,conexion.consultaListaProductos1());
+        listViewProductos.setAdapter(adaptador1);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchVieww.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
@@ -45,7 +51,7 @@ public class listview_productos extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String s) {
                 String text = s;
-                adaptador.getFilter().filter(text);
+                adaptador1.getFilter().filter(text);
                 return false;
             }
         });
@@ -71,5 +77,27 @@ public class listview_productos extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            new android.app.AlertDialog.Builder(this)
+                    .setIcon(R.drawable.ic_seguro)
+                    .setTitle("Warning")
+                    .setMessage("Realmente desea salir? " )
+                    .setNegativeButton(android.R.string.cancel,null)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
