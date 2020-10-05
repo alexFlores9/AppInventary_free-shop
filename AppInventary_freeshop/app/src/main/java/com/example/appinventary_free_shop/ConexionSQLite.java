@@ -1,12 +1,17 @@
 package com.example.appinventary_free_shop;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +23,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class ConexionSQLite extends SQLiteOpenHelper {
-boolean estadoDelete = true;
+boolean estadoDeletecategoria = true;
 ArrayList<String>listaCategorias;
 ArrayList<Dto>categoriasList;
 ArrayList<String>listaProductos;
@@ -45,8 +50,6 @@ ArrayList<Dto>productosList;
     }
 
 
-
-
     public SQLiteDatabase bd() {
         SQLiteDatabase bd = this.getWritableDatabase();
         return bd;
@@ -60,7 +63,6 @@ ArrayList<Dto>productosList;
         //En caso que hubiese más tablas hay que repetir las veces que sea necesario.
         //La línea: db.execSQL(“drop…”);
         onCreate(db);
-
     }
 
 
@@ -227,13 +229,82 @@ ArrayList<Dto>productosList;
         }
         return categoriasList;
     }
+    //metodo para borrar
+    public boolean eliminarcategoria(final  Context context, final Dto datos){
+        estadoDeletecategoria = true;
+        try {
+            int id_categoria = datos.getId_categoria();
+            Cursor  fila =bd().rawQuery("select * from tb_categoria where id_categoria="+ id_categoria, null);
+            if(fila.moveToFirst()){
+                datos.setId_categoria(Integer.parseInt(fila.getString(0)));
+                datos.setNom_categoria(fila.getString(1));
+                datos.setEstado_categoria(Integer.parseInt(fila.getString(2)));
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("OJO.");
+                builder.setMessage("¿Seguro que desea borrar este regitro?\n Nombre:"+datos.getNom_producto());
+                builder.setCancelable(false);
+                builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        int id_categoria = datos.getId_categoria();
+                        int cant = bd().delete("tb_categoria", "id_categoria" + id_categoria, null);
+
+                        if (cant > 0){
+                            estadoDeletecategoria = true;
+                            Toast.makeText(context,"Registro eliminado con exito!!!", Toast.LENGTH_SHORT).show();
+                        }else {
+                            estadoDeletecategoria = false;
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                }else {
+                    Toast.makeText(context,"No se encontraron registros de la busqueda",Toast.LENGTH_SHORT).show();
+                }
+        }catch (Exception e){
+            estadoDeletecategoria = false;
+            Log.e("Error.",e.toString());
+        }
+        return estadoDeletecategoria;
+    }
+    //fin metodo borrar
 
     //Fin de espacio asignado para registro de tabla categorias
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public Cursor Consultar(String usu, String pass) throws SQLException {
         Cursor mcursor =null;
         mcursor=this.getReadableDatabase().query("tb_usuario",new String[]{"id_usuario","nombre","apellido","correo","usuario","clave","tipo","estado","pregunta","respuesta"},"usuario like'"+usu+"'"+"and clave like'"+pass+"'",null,null,null,null);
         return mcursor;
     }
+
+
+
+
+
+
+
+
     //Inicio de espacio asignado para tabla producto
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
