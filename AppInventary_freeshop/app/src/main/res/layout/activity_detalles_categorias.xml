@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="@drawable/table"
     tools:context=".detalles_categorias">
 
     <LinearLayout
@@ -26,7 +26,7 @@
             android:layout_marginBottom="30dp"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Mantenimiento categorias:"
+            android:text="Info Categorias"
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -34,6 +34,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:background="#000000FF"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardUseCompatPadding="true"
+                android:background="#000"
                 app:cardElevation="4dp"
                 app:cardCornerRadius="3dp"
                 android:layout_margin="6dp">
@@ -53,7 +55,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@color/trans"
+                    android:background="@drawable/degstyle1"
+
                     android:padding="6dp"
 
                     android:gravity="center">
@@ -71,6 +74,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
+                            android:gravity="center"
+                            android:textSize="25dp"
+                            android:textStyle="bold"
                             android:text="Resultado de la busqueda"
                              />
                     </LinearLayout>
@@ -80,12 +86,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance"
-                        android:text="ID:"
+                        android:text="ID categoria:"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
                         android:layout_marginTop="25dp"
                         />
 
                     <TextView
-                        android:id="@+id/tv_id_categoria"
+                        android:id="@+id/tv_1"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -95,15 +103,17 @@
                         />
 
                     <TextView
-                        android:id="@+id/tvUserName1"
+                        android:id="@+id/sxds"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance"
-                        android:text="Nombre:"
+                        android:text="Nombre categoria:"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
                         android:layout_marginTop="25dp"
                         />
                     <TextView
-                        android:id="@+id/tv_nombre_categoria"
+                        android:id="@+id/tv_2"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -112,16 +122,20 @@
 
                         />
                     <TextView
+                        android:layout_marginTop="15dp"
                         android:id="@+id/tvUserName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
                         android:textAppearance="@android:style/TextAppearance"
                         android:text="Estado:"
 
                         />
 
                     <TextView
-                        android:id="@+id/tv_estado_categoria"
+
+                        android:id="@+id/tv_3"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -130,34 +144,42 @@
 
                         />
                     <TextView
-                        android:id="@+id/tv_fecha"
+                        android:layout_gravity="center"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fecha de creación:"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
                         android:layout_marginTop="20dp"
+                        />
+                    <TextView
+                        android:layout_gravity="center"
+                        android:id="@+id/tv_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="xxx"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"
+                        />
+                    <TextView
+                        android:layout_gravity="center"
 
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="                          "
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="30dp"
                         />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="#000"
                         android:orientation="horizontal">
-                        <Button
-                            android:id="@+id/btn_editar_categoria"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:onClick="editar_catategoria"
-                            android:text="Editar"/>
 
-                        <Button
-                            android:id="@+id/btn_Eliminar_categoria"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:onClick="eliminar_categoria"
-                            android:text="Eliminar"
-                            />
                     </LinearLayout>
 
                 </LinearLayout>

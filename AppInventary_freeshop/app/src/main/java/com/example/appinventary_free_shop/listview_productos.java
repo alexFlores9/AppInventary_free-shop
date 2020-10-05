@@ -58,7 +58,7 @@ public class listview_productos extends AppCompatActivity {
 
         listViewProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+            public void onItemClick(AdapterView<?> parent, View view, int pos, long l) {
                 String informacion ="ID: "+conexion.consultaProductos().get(pos).getId_producto()+"\n";
                 informacion+="Nombre: "+conexion.consultaProductos().get(pos).getNom_producto()+"\n";
                 informacion+="Descripción producto: "+conexion.consultaProductos().get(pos).getDes_producto()+"\n";
@@ -68,10 +68,10 @@ public class listview_productos extends AppCompatActivity {
                 informacion+="Estado: "+conexion.consultaProductos().get(pos).getEstado_producto()+"\n";
                 informacion+="Categoria: "+conexion.consultaProductos().get(pos).getCategoria();
 
-                Dto productos = conexion.consultaProductos().get(pos);
+                Dto articulos = conexion.consultaCategorias().get(pos);
                 Intent intent = new Intent(listview_productos.this, detalles_productos.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("tb_producto", productos);
+                bundle.putSerializable("articulo", articulos);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

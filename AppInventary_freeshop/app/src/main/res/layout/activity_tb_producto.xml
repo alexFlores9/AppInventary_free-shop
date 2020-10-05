@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/table"
     tools:context=".tb_producto">
 
 
@@ -42,6 +42,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="9dp"
                     android:layout_marginTop="15dp"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -70,6 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Nombre Producto:"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
         />
     <EditText
         android:id="@+id/ed_nombre_producto"
@@ -93,6 +97,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Descripción:"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="9dp"
                     />
                 <EditText
                     android:id="@+id/ed_descripcion_producto"
@@ -116,6 +122,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Stock:"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="9dp"
                     />
 
                 <EditText
@@ -154,6 +162,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Unidade de medida:"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="9dp"
                     />
                 <EditText
                     android:id="@+id/ed_unidad_de_medida"
@@ -176,6 +186,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Estado:"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="9dp"
                     />
 
                 <EditText
@@ -203,8 +215,10 @@
             </LinearLayout>
             <Button
                 android:id="@+id/btn_guardar_producto"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn"
                 android:onClick="campoproducto"
                 android:text="Guardar"
                 />

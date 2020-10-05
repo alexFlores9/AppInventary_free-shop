@@ -60,10 +60,10 @@ public class listview_categorias extends AppCompatActivity {
                 infromacion+="Nombre categoria:"+conexion.consultaCategorias().get(pos).getNom_categoria()+"\n";
                 infromacion+="Estado: "+conexion.consultaCategorias().get(pos).getEstado_categoria();
             
-                Dto categorias = conexion.consultaCategorias().get(pos);
+                Dto articulos = conexion.consultaCategorias().get(pos);
                 Intent intent = new Intent(listview_categorias.this, detalles_categorias.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("tb_categoria", categorias);
+                bundle.putSerializable("articulo", articulos);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

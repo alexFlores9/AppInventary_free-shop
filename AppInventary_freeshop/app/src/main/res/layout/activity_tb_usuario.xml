@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#fff"
+    android:background="@drawable/table"
     tools:context=".tb_usuario">
 <ScrollView
     android:layout_width="match_parent"
@@ -53,6 +53,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="number"
             />
 
         <TextView
@@ -165,6 +166,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="number"
             />
 
         //
@@ -184,6 +186,7 @@
             android:id="@+id/ed_estado"
             android:layout_width="300dp"
             android:layout_gravity="center"
+            android:inputType="number"
             android:layout_height="match_parent"
             />
 

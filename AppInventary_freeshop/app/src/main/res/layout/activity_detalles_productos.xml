@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="@drawable/table"
     tools:context=".detalles_productos">
 
     <LinearLayout
@@ -26,7 +26,7 @@
             android:layout_marginBottom="30dp"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Mantenimiento de Productos:"
+            android:text="Info Producto"
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -53,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@color/trans"
+                    android:background="@drawable/degstyle1"
                     android:padding="6dp"
 
                     android:gravity="center">
@@ -85,7 +85,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/tv_id_producto"
+                        android:id="@+id/t1"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                         android:layout_marginTop="25dp"
                         />
                     <TextView
-                        android:id="@+id/tv_nombre_producto"
+                        android:id="@+id/t2"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/des_producto"
+                        android:id="@+id/t3"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -137,12 +137,12 @@
                         />
 
                     <TextView
-                        android:id="@+id/tv_stock_producto"
+                        android:id="@+id/t4"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="000.00"
+                        android:text="bb"
                         />
 
 
@@ -155,7 +155,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/tv_precio"
+                        android:id="@+id/t5"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/tv_unidad_medida"
+                        android:id="@+id/t6"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/tv_estado_producto"
+                        android:id="@+id/t7"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -207,7 +207,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/tv_categoria_producto"
+                        android:id="@+id/t8"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/tv_fecha_pro"
+                        android:id="@+id/t9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fecha de creación:"
