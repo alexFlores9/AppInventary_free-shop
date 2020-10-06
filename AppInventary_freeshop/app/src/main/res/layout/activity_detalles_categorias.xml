@@ -173,7 +173,13 @@
                         android:textStyle="bold"
                         android:layout_marginTop="30dp"
                         />
-
+                        <Button
+                            android:id="@+id/btn_eliminar_cat"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Eliminar"
+                            android:onClick="eliminar_categoria"
+                            />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -242,17 +242,18 @@ ArrayList<Dto>productosList;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("OJO.");
-                builder.setMessage("¿Seguro que desea borrar este regitro?\n Nombre:"+datos.getNom_producto());
+                builder.setMessage("¿Seguro que desea borrar este regitro?\n Nombre:"+datos.getNom_categoria());
                 builder.setCancelable(false);
                 builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         int id_categoria = datos.getId_categoria();
-                        int cant = bd().delete("tb_categoria", "id_categoria" + id_categoria, null);
+                        int cant = bd().delete("tb_categoria", "id_categoria=" + id_categoria, null);
 
                         if (cant > 0){
                             estadoDeletecategoria = true;
                             Toast.makeText(context,"Registro eliminado con exito!!!", Toast.LENGTH_SHORT).show();
+
                         }else {
                             estadoDeletecategoria = false;
                         }
