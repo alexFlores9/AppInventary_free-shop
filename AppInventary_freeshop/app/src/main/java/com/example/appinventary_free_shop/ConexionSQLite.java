@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class ConexionSQLite extends SQLiteOpenHelper {
@@ -405,7 +406,7 @@ ArrayList<Dto>productosList;
                 productos.setId_producto(fila.getInt(0));
                 productos.setNom_producto(fila.getString(1));
                 productos.setDes_producto(fila.getString(2));
-                productos.setStock(fila.getDouble(3));
+                productos.setStock(fila.getInt(3));
                 productos.setPrecio(fila.getDouble(4));
                 productos.setUnidad_de_medida(fila.getString(5));
                 productos.setEstado_producto(fila.getInt(6));
@@ -424,6 +425,8 @@ ArrayList<Dto>productosList;
         }
         return listaProductos;
     }
+
+
 
     //consulta para obtener producto
     public ArrayList<String>obtenerListaProductos(){
@@ -452,7 +455,7 @@ ArrayList<Dto>productosList;
                 productos.setId_producto(fila.getInt(0));
                 productos.setNom_producto(fila.getString(1));
                 productos.setDes_producto(fila.getString(2));
-                productos.setStock(fila.getDouble(3));
+                productos.setStock(fila.getInt(3));
                 productos.setPrecio(fila.getDouble(4));
                 productos.setUnidad_de_medida(fila.getString(5));
                 productos.setEstado_producto(fila.getInt(6));
@@ -479,4 +482,17 @@ ArrayList<Dto>productosList;
         return productosList;
     }
     //fin de espacio asignado para tabla productos
+
+    public List<Dto> mostrar(){
+        SQLiteDatabase bd = this.getReadableDatabase();
+        Cursor cursor = bd.rawQuery("SELECT * FROM tb_producto order by id_producto desc", null);
+        List<Dto> articulos = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                articulos.add(new Dto(cursor.getInt(0), cursor.getString(1), cursor.getString(2),cursor.getDouble(3),cursor.getDouble(4),cursor.getString(5),cursor.getInt(6),cursor.getInt(7)));
+            }while (cursor.moveToNext());
+        }
+        return articulos;
+    }
+
 }

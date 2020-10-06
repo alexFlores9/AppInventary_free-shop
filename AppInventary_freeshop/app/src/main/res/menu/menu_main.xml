@@ -15,4 +15,11 @@
         android:title="Ver categoria"
         android:icon="@drawable/ic_verc"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/rv"
+        android:orderInCategory="3"
+        android:title="fail"
+        android:icon="@drawable/ic_verc"
+        app:showAsAction="never" />
 </menu>

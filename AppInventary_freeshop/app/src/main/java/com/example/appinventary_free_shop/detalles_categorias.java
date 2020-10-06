@@ -17,8 +17,7 @@ import java.util.Locale;
 
 public class detalles_categorias extends AppCompatActivity {
     private TextView tv1, tv2,tv3,tv4;
-    private Button btn_eliminar;
-    boolean btn_elimina=true;
+
     ConexionSQLite conexion = new ConexionSQLite(this);
     Dto datos = new Dto();
     @Override
@@ -26,11 +25,12 @@ public class detalles_categorias extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_categorias);
 
+
+
         tv1= findViewById(R.id.tv_1);
         tv2= findViewById(R.id.tv_2);
         tv3= findViewById(R.id.tv_3);
         tv4= findViewById(R.id.tv_4);
-        //btn_eliminar=findViewById(R.id.btn_eliminar_cat);
         Bundle objeto = getIntent().getExtras();
         Dto dto =   null;
         if (objeto!= null){
@@ -54,18 +54,6 @@ public class detalles_categorias extends AppCompatActivity {
 
     }
 
-    public void eliminar_categoria(View v){
-        if(btn_elimina){
-            String id_cat = tv1.getText().toString();
-            datos.setId_categoria(Integer.parseInt(id_cat));
-            if (conexion.eliminarcategoria(detalles_categorias.this,datos)){
-                Toast.makeText(this,":v",Toast.LENGTH_SHORT).show();
-            }
-        }else {
-            Toast.makeText(this,"Estas bien pinche pendejo >:v",Toast.LENGTH_SHORT).show();
-        }
-    }
-/*
     public boolean onKeyDown(int keyCode, KeyEvent event){
         if (keyCode == KeyEvent.KEYCODE_BACK){
             new android.app.AlertDialog.Builder(this)
@@ -85,5 +73,5 @@ public class detalles_categorias extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-*/
+
 }

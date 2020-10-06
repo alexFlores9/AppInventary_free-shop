@@ -41,6 +41,23 @@ public class Dto implements Serializable {
         this.estado_categoria= estado_categoria;
     }
 
+    public Dto(int id_producto,String nom_producto,  String des_producto,  double stock,  double precio, String unidad_de_medida, int estado_producto,int categoria) {
+        this.id_producto = id_producto;
+        this.nom_producto = nom_producto;
+        this.des_producto = des_producto;
+        this.stock = stock;
+        this.precio = precio;
+        this.unidad_de_medida = unidad_de_medida;
+        this.estado_producto = estado_producto;
+
+
+
+        this.categoria = categoria;
+
+
+    }
+
+
     public int getId_producto() {
         return id_producto;
     }

@@ -146,6 +146,10 @@ public class Principal extends AppCompatActivity{
             Intent intent = new Intent(getApplicationContext(),listview_categorias.class);
             startActivity(intent);
             return true;
+        }else if (id==R.id.rv){
+            Intent intent = new Intent(getApplicationContext(),recyclerview.class);
+            startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

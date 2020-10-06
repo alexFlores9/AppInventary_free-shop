@@ -56,29 +56,29 @@ public class listview_productos extends AppCompatActivity {
             }
         });
 
+
         listViewProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long l) {
-                String informacion ="ID: "+conexion.consultaProductos().get(pos).getId_producto()+"\n";
-                informacion+="Nombre: "+conexion.consultaProductos().get(pos).getNom_producto()+"\n";
-                informacion+="Descripción producto: "+conexion.consultaProductos().get(pos).getDes_producto()+"\n";
-                informacion+="Stock: "+conexion.consultaProductos().get(pos).getStock()+"\n";
-                informacion+="Precio: "+conexion.consultaProductos().get(pos).getPrecio()+"\n";
-                informacion+="Unidad de medida: "+conexion.consultaProductos().get(pos).getUnidad_de_medida()+"\n";
-                informacion+="Estado: "+conexion.consultaProductos().get(pos).getEstado_producto()+"\n";
-                informacion+="Categoria: "+conexion.consultaProductos().get(pos).getCategoria();
 
-                Dto articulos = conexion.consultaCategorias().get(pos);
-                Intent intent = new Intent(listview_productos.this, detalles_productos.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("articulo", articulos);
-                intent.putExtras(bundle);
+                String informacion ="iD: "+conexion.consultaProductos().get(pos).getId_producto()+"\n";
+                informacion+="nombre: "+conexion.consultaProductos().get(pos).getNom_producto()+"\n";
+                informacion+="descripción producto: "+conexion.consultaProductos().get(pos).getDes_producto()+"\n";
+                informacion+="stock: "+conexion.consultaProductos().get(pos).getStock()+"\n";
+                informacion+="precio: "+conexion.consultaProductos().get(pos).getPrecio()+"\n";
+                informacion+="unidad de medida: "+conexion.consultaProductos().get(pos).getUnidad_de_medida()+"\n";
+                informacion+="estado: "+conexion.consultaProductos().get(pos).getEstado_producto()+"\n";
+                informacion+="categoria: "+conexion.consultaProductos().get(pos).getCategoria();
+
+                Dto articulos = conexion.consultaProductos().get(pos);
+                Intent intent = new Intent(listview_productos.this, recyclerview.class);
+              
                 startActivity(intent);
             }
         });
-
-
     }
+
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){

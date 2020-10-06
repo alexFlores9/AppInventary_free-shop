@@ -31,8 +31,7 @@ public class detalles_productos extends AppCompatActivity {
 
         Bundle objeto = getIntent().getExtras();
         Dto dto =   null;
-
-        if(objeto !=null){
+        if (objeto!= null){
             dto =(Dto)objeto.getSerializable("articulo");
             tv_id_producto.setText(""+dto.getId_producto());
             tv_nombre_producto.setText(dto.getNom_producto());
