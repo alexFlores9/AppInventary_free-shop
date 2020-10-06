@@ -6,6 +6,7 @@ public class Dto implements Serializable {
     int id_producto, categoria, estado_producto;
     String nom_producto,des_producto,unidad_de_medida;
     double stock,precio;
+String fecha_entrada;
 
     int id_categoria, estado_categoria;
     String nom_categoria;
@@ -41,7 +42,9 @@ public class Dto implements Serializable {
         this.estado_categoria= estado_categoria;
     }
 
-    public Dto(int id_producto,String nom_producto,  String des_producto,  double stock,  double precio, String unidad_de_medida, int estado_producto,int categoria) {
+
+
+    public Dto(int id_producto, String nom_producto, String des_producto, double stock, double precio, String unidad_de_medida, int estado_producto, int categoria,String fecha_entrada) {
         this.id_producto = id_producto;
         this.nom_producto = nom_producto;
         this.des_producto = des_producto;
@@ -49,12 +52,24 @@ public class Dto implements Serializable {
         this.precio = precio;
         this.unidad_de_medida = unidad_de_medida;
         this.estado_producto = estado_producto;
-
-
-
         this.categoria = categoria;
+        this.fecha_entrada = fecha_entrada;
+    }
 
 
+    public Dto(int id_producto,String nom_producto,  String des_producto,  double stock,  double precio, String unidad_de_medida, int estado_producto,int categoria,String fecha_entrada,int id_categoria,String nom_categoria,int estado_categoria) {
+        this.id_producto = id_producto;
+        this.nom_producto = nom_producto;
+        this.des_producto = des_producto;
+        this.stock = stock;
+        this.precio = precio;
+        this.unidad_de_medida = unidad_de_medida;
+        this.estado_producto = estado_producto;
+        this.categoria = categoria;
+        this.fecha_entrada = fecha_entrada;
+        this.id_categoria = id_categoria;
+        this.nom_categoria = nom_categoria;
+        this.estado_categoria = estado_categoria;
     }
 
 
@@ -224,5 +239,14 @@ public class Dto implements Serializable {
 
     public void setEstado_producto(int estado_producto) {
         this.estado_producto = estado_producto;
+    }
+
+
+    public String getFecha_entrada() {
+        return fecha_entrada;
+    }
+
+    public void setFecha_entrada(String fecha_entrada) {
+        this.fecha_entrada = fecha_entrada;
     }
 }

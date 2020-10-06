@@ -22,4 +22,10 @@
         android:title="fail"
         android:icon="@drawable/ic_verc"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/rv2"
+        android:orderInCategory="4"
+        android:title="fail2"
+        android:icon="@drawable/ic_verc"
+        app:showAsAction="never" />
 </menu>

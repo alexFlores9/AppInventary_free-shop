@@ -33,10 +33,10 @@
                 android:layout_toRightOf="@id/imageView"
                 android:text="* ID Producto: "
 
-            android:background="#000"
-            android:textStyle="bold"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            android:textColor="#ffffff" />
+                android:background="#000"
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="#ffffff" />
             <TextView
                 android:id="@+id/textViewCodigo1"
                 android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                 android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
 
-            />
+                />
             <TextView
                 android:id="@+id/textViewPrecio1"
                 android:layout_width="match_parent"
@@ -230,6 +230,7 @@
                 android:text="xxx"
                 android:textColor="#ffffff"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
             <TextView
                 android:id="@+id/tv15"
                 android:layout_width="match_parent"
@@ -239,7 +240,7 @@
                 android:layout_marginTop="1dp"
                 android:background="#000"
                 android:layout_toRightOf="@id/imageView"
-                android:text="Fecha de entrada:"
+                android:text="fecha entrada :"
                 android:textColor="#ffffff"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
@@ -256,12 +257,89 @@
                 android:textColor="#ffffff"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
+            <TextView
+                android:id="@+id/tv17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv16"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+                android:background="#000"
+                android:layout_toRightOf="@id/imageView"
+                android:text="ID categoria :"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/tv18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv17"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+
+                android:layout_toRightOf="@id/imageView"
+                android:text="xxx"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/tv19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv18"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+                android:background="#000"
+                android:layout_toRightOf="@id/imageView"
+                android:text="Nombre categoria :"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/tv20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv19"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+
+                android:layout_toRightOf="@id/imageView"
+                android:text="xxx"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/tv21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv20"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+                android:background="#000"
+                android:layout_toRightOf="@id/imageView"
+                android:text="Estado categoria :"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/tv22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv21"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+
+                android:layout_toRightOf="@id/imageView"
+                android:text="xxx"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <TextView
                 android:id="@+id/textViewOtro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv16"
+                android:layout_below="@id/tv22"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/imageView"
                 android:text="..."

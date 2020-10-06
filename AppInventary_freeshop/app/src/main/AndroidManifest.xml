@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".recyclerview"></activity>
+        <activity android:name=".recyclerview2"></activity>
+        <activity android:name=".recyclerview" />
         <activity android:name=".Principal" />
         <activity android:name=".consulta_spinner_categoria" />
         <activity android:name=".detalles_categorias" />
         <activity android:name=".listview_categorias" />
-        <activity android:name=".listview_productos"></activity>
+        <activity android:name=".listview_productos" />
         <activity android:name=".tb_categoria" />
         <activity android:name=".slash">
             <intent-filter>
@@ -23,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tb_producto"></activity>
+        <activity android:name=".tb_producto" />
         <activity android:name=".Login" />
         <activity android:name=".tb_usuario" />
         <activity

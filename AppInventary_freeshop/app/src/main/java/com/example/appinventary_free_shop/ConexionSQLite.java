@@ -489,10 +489,23 @@ ArrayList<Dto>productosList;
         List<Dto> articulos = new ArrayList<>();
         if(cursor.moveToFirst()){
             do{
-                articulos.add(new Dto(cursor.getInt(0), cursor.getString(1), cursor.getString(2),cursor.getDouble(3),cursor.getDouble(4),cursor.getString(5),cursor.getInt(6),cursor.getInt(7)));
+                articulos.add(new Dto(cursor.getInt(0), cursor.getString(1), cursor.getString(2),cursor.getDouble(3),cursor.getDouble(4),cursor.getString(5),cursor.getInt(6),cursor.getInt(7),cursor.getString(8)));
             }while (cursor.moveToNext());
         }
         return articulos;
+    }
+
+    public List<Dto> mostrar2(){
+        SQLiteDatabase bd = this.getReadableDatabase();
+        Cursor cursor = bd.rawQuery("SELECT * FROM tb_producto p INNER JOIN tb_categoria c ON p.categoria = c.id_categoria", null);
+        List<Dto> articulos2 = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                articulos2.add(new Dto(cursor.getInt(0), cursor.getString(1), cursor.getString(2),cursor.getDouble(3),cursor.getDouble(4),
+                        cursor.getString(5),cursor.getInt(6),cursor.getInt(7),cursor.getString(8),cursor.getInt(9),cursor.getString(10),cursor.getInt(11)));
+            }while (cursor.moveToNext());
+        }
+        return articulos2;
     }
 
 }
