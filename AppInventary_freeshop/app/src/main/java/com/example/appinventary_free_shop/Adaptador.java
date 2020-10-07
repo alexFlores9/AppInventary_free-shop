@@ -49,7 +49,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.inner> {
         holder.t4.setText(String.valueOf("Registro #:" + (position+1)) + "/" +
                 getItemCount());
 
-
+        holder.tt.setText(String.valueOf("" + (position+1)) + "/" +
+                getItemCount());
 
     }
 
@@ -62,7 +63,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.inner> {
 
 
     public class inner extends RecyclerView.ViewHolder {
-        TextView t1,t2,t3,t4,t41,t5,t6,t7,t8,t9;
+        TextView t1,t2,t3,t4,t41,t5,t6,t7,t8,t9,tt;
 
         public inner(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +77,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.inner> {
             t7=itemView.findViewById(R.id.tv12);
             t8=itemView.findViewById(R.id.tv14);
             t9=itemView.findViewById(R.id.tv16);
+            tt= itemView.findViewById(R.id.textViewOtro2);
         }
     }
 }

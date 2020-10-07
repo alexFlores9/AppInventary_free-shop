@@ -50,7 +50,8 @@ public class Adaptador2 extends RecyclerView.Adapter<Adaptador2.inner2> {
         holder.t4.setText(String.valueOf("Registro #:" + (position+1)) + "/" +
                 getItemCount());
 
-
+        holder.tea.setText(String.valueOf("" + (position+1)) + "/" +
+                getItemCount());
     }
 
     /**
@@ -64,7 +65,7 @@ public class Adaptador2 extends RecyclerView.Adapter<Adaptador2.inner2> {
     }
 
     public class inner2 extends RecyclerView.ViewHolder {
-        TextView t1,t2,t3,t4,t41,t5,t6,t7,t8,t9,t10,t11,t12;
+        TextView t1,t2,t3,t4,t41,t5,t6,t7,t8,t9,t10,t11,t12,tea;
         public inner2(@NonNull View itemView) {
             super(itemView);
             t1 = itemView.findViewById(R.id.textViewCodigo1);
@@ -81,6 +82,7 @@ public class Adaptador2 extends RecyclerView.Adapter<Adaptador2.inner2> {
             t9=itemView.findViewById(R.id.tv18);
             t10=itemView.findViewById(R.id.tv20);
             t11=itemView.findViewById(R.id.tv22);
+            tea= itemView.findViewById(R.id.textViewOtro2);
         }
     }
 }

@@ -55,12 +55,13 @@ public class detalles_categorias extends AppCompatActivity {
 
     }
 
+
     public void eliminar_categoria(View v){
         if(btn_elimina_cate){
             String id_cat = tv1.getText().toString();
             datos.setId_categoria(Integer.parseInt(id_cat));
             if (conexion.eliminarcategoria(detalles_categorias.this,datos)){
-                Toast.makeText(this,":v",Toast.LENGTH_SHORT).show();
+
             }
         }else {
             Toast.makeText(this,"Algo salió mal",Toast.LENGTH_SHORT).show();

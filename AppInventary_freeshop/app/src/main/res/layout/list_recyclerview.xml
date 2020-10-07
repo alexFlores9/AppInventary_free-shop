@@ -25,6 +25,18 @@
                 android:layout_height="145dp"
                 android:src="@drawable/freeshop"
                 android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/textViewOtro2"
+                android:layout_width="120dp"
+                android:layout_height="145dp"
+                android:layout_marginTop="160dp"
+                android:background="#4EAFEA"
+                android:padding="3dp"
+                android:text="..."
+                android:textSize="80sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/textViewCodigo"
                 android:layout_width="match_parent"

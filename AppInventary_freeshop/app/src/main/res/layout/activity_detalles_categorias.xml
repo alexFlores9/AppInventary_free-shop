@@ -58,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@drawable/degstyle1"
+                    android:background="#8BFFF3"
 
                     android:padding="6dp"
 
@@ -177,16 +177,18 @@
                         />
                     <Button
                         android:id="@+id/btn_editar_cat"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Editar"
+                        android:background="@drawable/btn"
                         android:onClick="editar_categoria"
                         />
                         <Button
                             android:id="@+id/btn_eliminar_cat"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Eliminar"
+                            android:background="@drawable/btn"
                             android:onClick="eliminar_categoria"
                             />
 

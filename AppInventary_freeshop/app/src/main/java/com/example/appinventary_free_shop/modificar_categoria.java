@@ -2,6 +2,7 @@ package com.example.appinventary_free_shop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -73,8 +74,12 @@ public class modificar_categoria extends AppCompatActivity implements View.OnCli
 
             if (conexion.editarcategoria(datos)){
                 Toast.makeText(this,"Registro modificado.",Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(),listview_categorias.class);
+                startActivity(intent);
+
             }else {
-                Toast.makeText(this,"ERRO.\n El ID especificado, no se que ponerle X'D",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"ERRO.\n El ID especificado",Toast.LENGTH_SHORT).show();
 
             }
 

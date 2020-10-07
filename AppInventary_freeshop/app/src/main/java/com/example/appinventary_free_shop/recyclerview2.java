@@ -29,5 +29,24 @@ public class recyclerview2 extends AppCompatActivity {
         adap = new Adaptador2(recyclerview2.this, datos.mostrar2());
         recycler.setAdapter(adap);
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            new android.app.AlertDialog.Builder(this)
+                    .setIcon(R.drawable.ic_seguro)
+                    .setTitle("Warning")
+                    .setMessage("Realmente desea retroceder?")
+                    .setNegativeButton(android.R.string.cancel,null)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
