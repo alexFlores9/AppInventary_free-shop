@@ -542,4 +542,36 @@ ArrayList<Dto>productosList;
         return articulos2;
     }
 
+    public boolean consultaArticulos(Dto datos) {
+        boolean estado = true;
+        int resultado;
+
+        SQLiteDatabase bd = this.getReadableDatabase();
+        try {
+            String[] parametros = {String.valueOf(datos.getId_producto())};
+            String[] campos = {"id_codigo", "nom_producto", "des_producto","stock","precio","unidad_de_medida","estado_producto","categoria"};
+            Cursor fila = bd.query("tb_producto", campos, "id_codigo=?", parametros, null, null, null);
+
+            if (fila.moveToFirst()) {
+                datos.setId_producto(Integer.parseInt(fila.getString(0)));
+                datos.setNom_producto(fila.getString(1));
+                datos.setDes_producto(fila.getString(2));
+                datos.setStock(Double.parseDouble(fila.getString(3)));
+                datos.setPrecio(Double.parseDouble(fila.getString(4)));
+                datos.setUnidad_de_medida(fila.getString(5));
+                datos.setEstado_producto(Integer.parseInt(fila.getString(6)));
+                datos.setCategoria(Integer.parseInt(fila.getString(7)));
+                estado = true;
+            } else {
+                estado = false;
+            }
+            fila.close();
+            bd.close();
+        } catch (Exception e) {
+            estado = false;
+            Log.e("error.", e.toString());
+        }
+        return estado;
+
+    }
 }

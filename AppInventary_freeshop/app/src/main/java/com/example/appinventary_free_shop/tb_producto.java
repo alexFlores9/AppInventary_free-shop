@@ -15,6 +15,11 @@ import android.widget.Toast;
 public class tb_producto extends AppCompatActivity implements View.OnClickListener {
     private EditText ed_id_producto,ed_nombre_producto,ed_descripcion_producto,ed_stock,
             ed_precio, ed_unidad_de_medida,ed_estado_producto,ed_categoria_producto;
+
+    boolean input1=false;
+    boolean inputEd=false;
+
+    int resultadoInsert=0;
     private Button btn_guardar_pro;
     boolean Input1 = false;
     boolean Input2 = false;
@@ -195,5 +200,41 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
        @Override
     public void onClick(View view) {
 
+    }
+
+
+
+    public void consultaporcodigo(){
+        if( ed_id_producto.getText().toString().length()==0){
+            ed_id_producto.setError("Campo obligatorio");
+            input1=false;
+        }else{
+            input1=true;
+
+        }
+        if (input1){
+            String id_producto=  ed_id_producto.getText().toString();
+            datos.setId_producto(Integer.parseInt(id_producto));
+            if (conexion.consultaArticulos(datos)){
+                ed_nombre_producto.setText(datos.getNom_producto());
+                ed_descripcion_producto.setText(datos.getDes_producto());
+                ed_stock.setText(""+datos.getStock());
+                ed_precio.setText(""+datos.getPrecio());
+                ed_unidad_de_medida.setText(datos.getUnidad_de_medida());
+                ed_estado_producto.setText(""+datos.getEstado_producto());
+                ed_categoria_producto.setText(""+datos.getCategoria());
+
+            }else {
+                Toast.makeText(this, "No existe un articulo con dicho codigo", Toast.LENGTH_SHORT).show();
+
+            }
+        }else {
+            Toast.makeText(this, "Ingrese el codigo del articulo a buscar", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public void xdd(View view) {
+        consultaporcodigo();
     }
 }
