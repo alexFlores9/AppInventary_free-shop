@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     android:background="@drawable/table"
     tools:context=".detalles_categorias">
 
@@ -34,11 +35,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:background="#000000FF"
+        android:background="@color/trans"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/trans"
+            android:outlineSpotShadowColor="@color/trans"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
@@ -67,7 +70,6 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="5dp"
                         android:layout_marginLeft="0dp"
-
                         >
                         <TextView
                             android:id="@+id/tvInformId"
@@ -173,6 +175,13 @@
                         android:textStyle="bold"
                         android:layout_marginTop="30dp"
                         />
+                    <Button
+                        android:id="@+id/btn_editar_cat"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Editar"
+                        android:onClick="editar_categoria"
+                        />
                         <Button
                             android:id="@+id/btn_eliminar_cat"
                             android:layout_width="match_parent"
@@ -180,6 +189,7 @@
                             android:text="Eliminar"
                             android:onClick="eliminar_categoria"
                             />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

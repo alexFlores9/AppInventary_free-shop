@@ -123,7 +123,6 @@ public class tb_categoria extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
     @Override
     public void onClick(View view) {
 

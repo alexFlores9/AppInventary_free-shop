@@ -2,6 +2,7 @@ package com.example.appinventary_free_shop;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -278,6 +279,37 @@ ArrayList<Dto>productosList;
         return estadoDeletecategoria;
     }
     //fin metodo borrar
+
+    //metoodo editar
+    public  boolean editarcategoria(Dto datos){
+        boolean estado = true;
+        int resultado;
+
+        SQLiteDatabase bd = this.getWritableDatabase();
+
+        try{
+            int id_categoria = datos.getId_categoria();
+            String nom_categoria = datos.getNom_categoria();
+            int estado_categoria = datos.getEstado_categoria();
+
+            ContentValues registro = new ContentValues();
+            registro.put("id_categoria",id_categoria);
+            registro.put("nom_categoria",nom_categoria);
+            registro.put("estado_categoria",estado_categoria);
+
+            int cant = (int)bd.update("tb_categoria",registro,"id_categoria="+id_categoria,null);
+
+            bd.close();
+            if (cant>0)estado = true;
+            else estado = false;
+        }catch (Exception e){
+            estado= false;
+            Log.e("error.",e.toString());
+        }
+        return estado;
+    }
+    //fin metodo editar
+//Editar categorias
 
     //Fin de espacio asignado para registro de tabla categorias
 
