@@ -98,6 +98,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="text"
            />
         <TextView
             android:layout_marginTop="15dp"
@@ -115,6 +116,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="text"
             />
 ////
         <TextView
@@ -133,6 +135,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="text"
             />
 
 //
@@ -153,6 +156,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="text"
             />
 //
         <TextView
@@ -171,6 +175,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="text"
             />
 
         //
@@ -233,6 +238,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="text"
             />
         ///
         <TextView
@@ -251,6 +257,7 @@
             android:layout_width="300dp"
             android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:inputType="text"
             />
 
 

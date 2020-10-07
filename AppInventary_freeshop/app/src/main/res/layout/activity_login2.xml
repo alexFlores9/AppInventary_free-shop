@@ -21,9 +21,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="::Free Shop::"
+                android:text="Bienvenid@ \n ::Free Shop::"
                 android:textColor="#000"
-                android:textSize="55sp" />
+                android:textSize="25sp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,18 +53,8 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="#000"
                 android:gravity="center"
-                android:hint="Escriba su usuario"
-
-
-                android:shadowDx="-8"
-                android:shadowDy="-9"
-                android:shadowRadius="5"
-                android:paddingLeft="25dp"
-                android:drawableStart="@drawable/ic_user"
-                android:drawablePadding="5dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:drawableLeft="@drawable/ic_user"/>
+                android:inputType="text"
+                android:hint="Escriba su usuario" />
 
 
 
@@ -75,17 +65,7 @@
                 android:textColorHint="#000"
                 android:inputType="textPassword"
                 android:gravity="center"
-                android:hint="Escriba su contraseña"
-
-                android:shadowDx="-8"
-                android:shadowDy="-9"
-                android:shadowRadius="5"
-                android:paddingLeft="25dp"
-                android:drawableStart="@drawable/ic_pass"
-                android:drawablePadding="5dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:drawableLeft="@drawable/ic_pass"/>
+                android:hint="Escriba su contraseña" />
 
 
             <Button
@@ -95,9 +75,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn"
-                android:text="ingresar"
-
-           />
+                android:text="ingresar" />
 
 
 

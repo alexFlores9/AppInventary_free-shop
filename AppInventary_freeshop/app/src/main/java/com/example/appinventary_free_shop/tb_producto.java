@@ -197,14 +197,131 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+
+
+    public void editar_producto(View v){
+        if(ed_id_producto.getText().toString().length()==0){
+            ed_id_producto.setError("Campo obligatorio");
+            Input1 = false;
+        }else{
+            Input1 = true;
+        }
+        if (ed_nombre_producto.getText().toString().length()==0){
+            ed_nombre_producto.setError("Campo obligatorio");
+            Input2=false;
+        }else{
+            Input2 = true;
+        }
+        if (ed_descripcion_producto.getText().toString().length()==0){
+            ed_descripcion_producto.setError("Campo obligatorio");
+            Input3 =false;
+        }else{
+            Input3 = true;
+        }
+        if(ed_stock.getText().toString().length()==0){
+            ed_stock.setError("Campo obligatorio");
+            Input4 = false;
+        }else{
+            Input4 = true;
+        }
+        if(ed_precio.getText().toString().length()==0){
+            ed_precio.setError("Campo obligatorio");
+            Input5=false;
+        }else{
+            Input5=true;
+        }
+        if(ed_unidad_de_medida.getText().toString().length()==0){
+            ed_unidad_de_medida.setError("Campo obligatorio");
+            Input6=false;
+        }else {
+            Input6= true;
+        }
+        if(ed_estado_producto.getText().toString().length()==0){
+            ed_estado_producto.setError("Campo obligatorio");
+            Input7=false;
+        }else{
+            Input7= true;
+        }
+        if(ed_categoria_producto.getText().toString().length()==0){
+            ed_categoria_producto.setError("Campo obligatorio");
+            Input8=false;
+        }else{
+            Input8=true;
+        }
+        if(Input1 && Input2 && Input3 && Input4 && Input5 && Input6 && Input7 && Input8){
+            String id_producto = ed_id_producto.getText().toString();
+            String nom_producto =ed_nombre_producto.getText().toString();
+            String des_producto = ed_descripcion_producto.getText().toString();
+            double stock = Double.parseDouble(ed_stock.getText().toString());
+            double precio = Double.parseDouble(ed_precio.getText().toString());
+            String unidad_de_medida = ed_unidad_de_medida.getText().toString();
+            String estado_producto = ed_estado_producto.getText().toString();
+            String categoria = ed_categoria_producto.getText().toString();
+
+            datos.setId_producto(Integer.parseInt(id_producto));
+            datos.setNom_producto(nom_producto);
+            datos.setDes_producto(des_producto);
+            datos.setStock(stock);
+            datos.setPrecio(precio);
+            datos.setUnidad_de_medida(unidad_de_medida);
+            datos.setEstado_producto(Integer.parseInt(estado_producto));
+            datos.setCategoria(Integer.parseInt(categoria));
+
+            if(conexion.modificar_producto(datos)){
+                Toast.makeText(this,"Registro modificado.",Toast.LENGTH_SHORT).show();
+            }else {
+
+                Toast.makeText(this,"No se ha encontrado resultados para la busqueda especificada.",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    public void borrar_producto (View v){
+        if(ed_id_producto.getText().toString().length()==0){
+            ed_id_producto.setError("Campo obligatorio");
+            input1 = false;
+        }else {
+            input1 =true;
+        }
+        if (input1){
+            String id_producto = ed_id_producto.getText().toString();
+            datos.setId_producto(Integer.parseInt(id_producto));
+            if(conexion.eliminarproducto(tb_producto.this,datos)){
+                limpiarDatosProducto();
+            }else {
+                Toast.makeText(this,"No existe un producto von dicho id.",Toast.LENGTH_SHORT).show();
+
+                limpiarDatosProducto();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        @Override
     public void onClick(View view) {
 
     }
 
 
-
-    public void consultaporcodigo(){
+/*
+    public void buscar_producto(){
         if( ed_id_producto.getText().toString().length()==0){
             ed_id_producto.setError("Campo obligatorio");
             input1=false;
@@ -233,8 +350,6 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+*/
 
-    public void xdd(View view) {
-        consultaporcodigo();
-    }
 }

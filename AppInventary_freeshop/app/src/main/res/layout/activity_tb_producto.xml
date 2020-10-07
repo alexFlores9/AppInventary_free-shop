@@ -149,6 +149,7 @@
                     />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
@@ -227,22 +228,11 @@
                 android:id="@+id/menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
+                android:layout_gravity="bottom|end"
                 android:backgroundTintMode="multiply"
                 app:menu_buttonToggleAnimation="@anim/fab_slide_in_from_left"
-                app:srcCompat="@android:drawable/ic_menu_revert"
-                >
+                app:srcCompat="@android:drawable/ic_menu_revert">
 
-                <com.github.clans.fab.FloatingActionButton
-                    android:id="@+id/item11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#fff"
-                    android:backgroundTintMode="multiply"
-                    android:src="@drawable/ic_acerca"
-                    app:borderWidth="0dp"
-                    app:fab_label="Borrar"
-                    app:fab_size="normal" />
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/item12"
@@ -252,33 +242,26 @@
                     android:backgroundTint="#fff"
                     android:backgroundTintMode="multiply"
                     android:src="@drawable/ic_close"
-
+                    android:onClick="editar_producto"
                     app:borderWidth="4dp"
                     app:fab_label="Editar"
                     app:fab_size="mini" />
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/item13"
-android:onClick="xdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#fff"
                     android:backgroundTintMode="multiply"
+                    android:onClick="borrar_producto"
                     android:src="@drawable/ic_cerrar"
 
                     app:borderWidth="4dp"
-                    app:fab_label="Buscar"
+                    app:fab_label="Borrar"
                     app:fab_size="mini" />
 
 
             </com.github.clans.fab.FloatingActionMenu>
-            <TextView
-                android:layout_marginTop="100dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="     "/>
-
-
 
         </LinearLayout>
     </ScrollView>

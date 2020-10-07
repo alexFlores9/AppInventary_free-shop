@@ -78,7 +78,7 @@
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/btn"
                 android:onClick="aggpro"
-                android:text="Agregar producto" />
+                android:text="Registrar" />
             <Button
                 android:layout_width="150dp"
                 android:layout_marginStart="35dp"

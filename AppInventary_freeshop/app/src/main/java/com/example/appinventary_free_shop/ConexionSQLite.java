@@ -27,6 +27,7 @@ import java.util.Locale;
 
 public class ConexionSQLite extends SQLiteOpenHelper {
 boolean estadoDeletecategoria = true;
+boolean estadoDeleteProducto = true;
 ArrayList<String>listaCategorias;
 ArrayList<Dto>categoriasList;
 ArrayList<String>listaProductos;
@@ -543,6 +544,55 @@ ArrayList<Dto>productosList;
         return articulos2;
     }
 
+
+
+    //Editar producto
+
+        public boolean modificar_producto (Dto datos){
+            boolean estado = true;
+            int resultado;
+            SQLiteDatabase bd = this.getWritableDatabase();
+            try{
+                int id_producto = datos.getId_producto();
+                String nom_producto = datos.getNom_producto();
+                String des_producto = datos.getDes_producto();
+                double stock = datos.getStock();
+                double precio = datos.getPrecio();
+                String unidad_de_medida = datos.getUnidad_de_medida();
+                int estado_producto = datos.getEstado_producto();
+                int categoria = datos.getCategoria();
+
+                ContentValues registro = new ContentValues();
+                registro.put("id_producto",id_producto);
+                registro.put("nom_producto",nom_producto);
+                registro.put("des_producto",des_producto);
+                registro.put("stock",stock);
+                registro.put("precio",precio);
+                registro.put("unidad_de_medida",unidad_de_medida);
+                registro.put("estado",estado_producto);
+                registro.put("categoria",categoria);
+
+                int cant =(int)bd.update("tb_producto", registro,"id_producto="+id_producto,null);
+
+                bd.close();
+                if(cant>0)estado=true;
+                else estado = false;
+
+            }catch (Exception e){
+                estado= false;
+                Log.e("error.",e.toString());
+            }
+            return  estado;
+        }
+
+    //fin editar preducto
+
+
+
+
+
+
+/*
     public boolean consultaArticulos(Dto datos) {
         boolean estado = true;
         int resultado;
@@ -575,4 +625,63 @@ ArrayList<Dto>productosList;
         return estado;
 
     }
+
+    */
+//inicio eliminar producto
+
+    public boolean eliminarproducto(final Context context, final Dto datos){
+        estadoDeleteProducto = true;
+        try {
+            int id_producto = datos.getId_producto();
+            Cursor fila = bd().rawQuery("select * from tb_producto where id_producto="+id_producto, null);
+            if(fila.moveToFirst()){
+                datos.setId_categoria(Integer.parseInt(fila.getString(0)));
+                datos.setNom_producto(fila.getString(1));
+                datos.setDes_producto(fila.getString(2));
+                datos.setStock(Double.parseDouble(fila.getString(3)));
+                datos.setPrecio(Double.parseDouble(fila.getString(4)));
+                datos.setUnidad_de_medida(fila.getString(5));
+                datos.setEstado_producto(Integer.parseInt(fila.getString(6)));
+                datos.setCategoria(Integer.parseInt(fila.getString(7)));
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Warning");
+                builder.setTitle("¿Esta seguro de borrar el registro: \n Nombre:"+datos.getId_producto());
+                builder.setCancelable(false);
+                builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        int id_producto = datos.getId_producto();
+                        int cant = bd().delete("tb_producto","id_producto="+id_producto,null);
+                        if (cant>0){
+                            estadoDeleteProducto =true;
+                            Toast.makeText(context,"Registro eliminado correctamente.",Toast.LENGTH_SHORT).show();
+
+                        }else {
+                            estadoDeleteProducto = false;
+                        }
+                        bd().close();
+                    }
+                });
+
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }else {
+                Toast.makeText(context,"No se ha encontrado un registro con la busqeuda especificada.",Toast.LENGTH_SHORT).show();
+
+            }
+        }catch (Exception e){
+            estadoDeleteProducto = false;
+            Log.e("Error.",e.toString());
+        }
+        return estadoDeleteProducto;
+    }
+//fin borrar producto
 }
