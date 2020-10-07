@@ -65,13 +65,14 @@
 
                     />
                 <Button
+
                     android:layout_gravity="center"
-                    android:id="@+id/btn_guardar_categoria"
+                    android:id="@+id/btn_actualizar_categoria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="editar_categoria1"
                     android:background="@drawable/btn"
-                    android:text="Guardar"
+                    android:text="Actualizar"
                     />
             </LinearLayout>
 

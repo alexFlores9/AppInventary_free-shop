@@ -299,6 +299,8 @@ ArrayList<Dto>productosList;
 
             int cant = (int)bd.update("tb_categoria",registro,"id_categoria="+id_categoria,null);
 
+            //Cursor fila = bd().rawQuery("select id_categoria from tb_categoria where id_categoria='"+id_categoria+"'",null);
+
             bd.close();
             if (cant>0)estado = true;
             else estado = false;

@@ -63,7 +63,7 @@ public class detalles_categorias extends AppCompatActivity {
                 Toast.makeText(this,":v",Toast.LENGTH_SHORT).show();
             }
         }else {
-            Toast.makeText(this,"Estas bien pinche pendejo >:v",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Algo salió mal",Toast.LENGTH_SHORT).show();
         }
     }
 

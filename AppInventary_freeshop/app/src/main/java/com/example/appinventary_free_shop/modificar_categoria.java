@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class modificar_categoria extends AppCompatActivity implements View.OnClickListener {
     private EditText et_id, et_nombre, et_estado;
-    private Button btn_guardar;
+    private Button btn_actualizar;
     boolean inputEt = false;
     boolean inputEd =  false;
     boolean input1 = false;
@@ -23,6 +23,21 @@ public class modificar_categoria extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_categoria);
 
+        et_id=findViewById(R.id.et_id_categoria);
+        et_nombre=findViewById(R.id.et_nom_categoria);
+        et_estado=findViewById(R.id.et_estado_categoria);
+        btn_actualizar = findViewById(R.id.btn_actualizar_categoria);
+
+        Bundle objeto = getIntent().getExtras();
+        Dto dto =   null;
+        if (objeto!= null){
+            dto=(Dto)objeto.getSerializable("articulo");
+
+
+            et_id.setText(""+dto.getId_categoria());
+
+
+        }
 
     }
 
@@ -48,18 +63,18 @@ public class modificar_categoria extends AppCompatActivity implements View.OnCli
         }
 
         if(inputEd && inputEt && input1){
-            Integer id =Integer.parseInt( et_id.getText().toString());
-            String nombre = et_nombre.getText().toString();
-            Integer estado = Integer.parseInt(et_estado.getText().toString());
+            String id_categoria =et_id.getText().toString();
+            String nom_categoria = et_nombre.getText().toString();
+            String estado_categoria = et_estado.getText().toString();
 
-            datos.setId_categoria(id);
-            datos.setNom_categoria(nombre);
-            datos.setEstado_categoria(estado);
+            datos.setId_categoria(Integer.parseInt(id_categoria));
+            datos.setNom_categoria(nom_categoria);
+            datos.setEstado_categoria(Integer.parseInt(estado_categoria));
 
             if (conexion.editarcategoria(datos)){
                 Toast.makeText(this,"Registro modificado.",Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(this,"Algo ha salido mal\n Vuelve a intentarlo",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"ERRO.\n El ID especificado, no se que ponerle X'D",Toast.LENGTH_SHORT).show();
 
             }
 
