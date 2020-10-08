@@ -548,7 +548,7 @@ ArrayList<Dto>productosList;
 
     //Editar producto
 
-        public boolean modificar_producto (Dto datos){
+        public boolean modificaproducto (Dto datos){
             boolean estado = true;
             int resultado;
             SQLiteDatabase bd = this.getWritableDatabase();
@@ -563,13 +563,14 @@ ArrayList<Dto>productosList;
                 int categoria = datos.getCategoria();
 
                 ContentValues registro = new ContentValues();
+
                 registro.put("id_producto",id_producto);
                 registro.put("nom_producto",nom_producto);
                 registro.put("des_producto",des_producto);
                 registro.put("stock",stock);
                 registro.put("precio",precio);
                 registro.put("unidad_de_medida",unidad_de_medida);
-                registro.put("estado",estado_producto);
+                registro.put("estado_producto",estado_producto);
                 registro.put("categoria",categoria);
 
                 int cant =(int)bd.update("tb_producto", registro,"id_producto="+id_producto,null);

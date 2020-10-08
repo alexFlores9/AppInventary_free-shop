@@ -249,6 +249,7 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
             Input8=true;
         }
         if(Input1 && Input2 && Input3 && Input4 && Input5 && Input6 && Input7 && Input8){
+
             String id_producto = ed_id_producto.getText().toString();
             String nom_producto =ed_nombre_producto.getText().toString();
             String des_producto = ed_descripcion_producto.getText().toString();
@@ -267,7 +268,7 @@ public class tb_producto extends AppCompatActivity implements View.OnClickListen
             datos.setEstado_producto(Integer.parseInt(estado_producto));
             datos.setCategoria(Integer.parseInt(categoria));
 
-            if(conexion.modificar_producto(datos)){
+            if(conexion.modificaproducto(datos)){
                 Toast.makeText(this,"Registro modificado.",Toast.LENGTH_SHORT).show();
             }else {
 
