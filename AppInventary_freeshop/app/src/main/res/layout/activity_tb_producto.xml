@@ -214,6 +214,9 @@
                     />
 
             </LinearLayout>
+
+
+
             <Button
                 android:id="@+id/btn_guardar_producto"
                 android:layout_width="300dp"
@@ -264,6 +267,8 @@
             </com.github.clans.fab.FloatingActionMenu>
 
         </LinearLayout>
+
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
